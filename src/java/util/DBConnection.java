@@ -11,7 +11,7 @@ public class DBConnection {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/MSC", "root", "12345");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/MSC", "postgres", "125232521");
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
