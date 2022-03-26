@@ -1,24 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSF/JSFManagedBean.java to edit this template
- */
+
 package controller;
 
 import dao.CompanyDAO;
 
-import jakarta.enterprise.context.Dependent;
+
 import entity.Company;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
+import java.io.Serializable;
 
 import java.util.List;
 
-/**
- *
- * @author husam
- */
+
 @Named(value = "companyBean")
-@Dependent
-public class CompanyBean {
+@SessionScoped
+public class CompanyBean implements Serializable{
 
     private Company entity;
     private CompanyDAO dao;

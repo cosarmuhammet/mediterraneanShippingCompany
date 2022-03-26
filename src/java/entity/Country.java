@@ -1,9 +1,5 @@
 package entity;
-
-
-public class Country {
-    
-    
+public class Country {   
     private String country_ID;
     private String name;
     

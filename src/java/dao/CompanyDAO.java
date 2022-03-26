@@ -7,16 +7,11 @@ package dao;
 import java.util.List;
 import util.DBConnection;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import entity.Company;
 
-/**
- *
- * @author husam
- */
 public class CompanyDAO extends DBConnection {
 
     private Connection db;
@@ -24,12 +19,9 @@ public class CompanyDAO extends DBConnection {
     public void CompanyDAO(Company c) {
         try {
 
-            /*
-            dkjsbkjbck
-             */
             Statement st = this.getDb().createStatement();
 
-            String query = "insert into company(company_id,company_name,company_type,founder,year_of_foundation) values('"+c.getCompany_ID()+"','"+c.getCompany_Name()+"','"+c.getCompany_type()+"','"+c.getFounder()+"','"+c.getYear_of_Foundation()+"');";
+            String query = "insert into company (company_id,company_name,company_type,founder,year_of_foundation) values('" + c.getCompany_ID() + "', '" + c.getCompany_Name() + "', '" + c.getCompany_type() + "', '" + c.getFounder() + "', '" + c.getYear_of_Foundation() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -75,7 +67,6 @@ public class CompanyDAO extends DBConnection {
     public Connection getDb() {
         if (this.db == null) {
             this.db = this.connect();
-
         }
         return db;
     }

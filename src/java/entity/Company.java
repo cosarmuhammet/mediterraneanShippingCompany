@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package entity;
 
-/**
- *
- * @author husam
- */
 public class Company {
-
     private String Company_ID;
     private String Company_Name;
     private String Company_type;
@@ -18,7 +10,7 @@ public class Company {
 
     public Company() {
     }
-
+    //constructor method
     public Company(String Company_ID, String Company_Name, String Company_type, String Founder, String Year_of_Foundation) {
         this.Company_ID = Company_ID;
         this.Company_Name = Company_Name;
