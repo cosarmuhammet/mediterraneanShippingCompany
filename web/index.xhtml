@@ -7,7 +7,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        
+
         <h:form>
             Country ID: <h:inputText value="#{countryBean.entity.country_ID}" />
             <br></br>
@@ -78,6 +78,56 @@
                     <f:facet name="header">DELETE</f:facet>
                     <h:commandButton action="#{brandBean.delete(c)}" value="Sil" />
                 </h:column>
+
+            </h:dataTable>
+
+            <hr />
+
+
+        </h:form>
+        <h:form>
+            Company ID: <h:inputText value="#{companyBean.entity.company_ID}" />
+            <br></br>
+            Company Name: <h:inputText value="#{companyBean.entity.company_Name}" />
+            <br></br>
+            Company type: <h:inputText value="#{companyBean.entity.company_type}" />
+            <br></br>
+            Company Founder <h:inputText value="#{companyBean.entity.founder}" />
+            <br></br>
+            Company Year of Foundation: <h:inputText value="#{companyBean.entity.year_of_Foundation}" />
+            <br></br>
+
+            <h:commandButton action="#{companyBean.create}" value="Kaydet" />  
+
+            <h:dataTable value="#{companyBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">Company ID</f:facet>
+                        #{c.company_ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company NAME</f:facet>
+                        #{c.company_Name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company ID</f:facet>
+                        #{c.company_type}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company NAME</f:facet>
+                        #{c.founder}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company ID</f:facet>
+                        #{c.year_of_Foundation}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton action="#{companyBean.delete(c)}" value="Sil" />
+                </h:column>
+
 
             </h:dataTable>
 

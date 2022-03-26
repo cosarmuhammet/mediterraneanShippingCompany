@@ -3,10 +3,8 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+public abstract class DBConnection {
 
-public class DBConnection {
-    
-    
     public Connection connect() {
         Connection c = null;
         try {
@@ -18,6 +16,5 @@ public class DBConnection {
         }
         return c;
     }
-    
-}
 
+}
