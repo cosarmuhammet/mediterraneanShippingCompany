@@ -14,7 +14,7 @@
             Country Name: <h:inputText value="#{countryBean.entity.name}" />
             <br></br>
             <h:commandButton action="#{countryBean.create}" value="Kaydet" />  
-            
+
             <h:dataTable value="#{countryBean.list}" var="c" >
 
                 <h:column>
@@ -33,13 +33,60 @@
 
 
             </h:dataTable>
-        
+
             <hr />
 
 
         </h:form>
-        
-        
+
+
+        <h:form>
+
+            Brand ID: <h:inputText value="#{brandBean.entity.brand_ID}" />
+            <br></br>
+            Brand Name: <h:inputText value="#{brandBean.entity.name}" />
+            <br></br>
+            Contract_Dates: <h:inputText value="#{brandBean.entity.contract_Dates}" />
+            <br></br>
+            Contract_Duration: <h:inputText value="#{brandBean.entity.contract_Duration}" />
+            <br></br>
+            <h:commandButton action="#{brandBean.create}" value="Kaydet" />  
+
+            <h:dataTable value="#{brandBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{c.brand_ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                        #{c.name}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DATES</f:facet>
+                        #{c.contract_Dates}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DURATION</f:facet>
+                        #{c.contract_Duration}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton action="#{brandBean.delete(c)}" value="Sil" />
+                </h:column>
+
+            </h:dataTable>
+
+            <hr />
+
+
+        </h:form>
+
+
     </h:body>
 </html>
 
