@@ -6,7 +6,7 @@ public class Employee {
     private String name;
     private String surname;
     private String date_of_birth;
-    private String adress;
+    private String address;
     private String jop_position;
     private String phone_number;
     private String travel_time;
@@ -16,12 +16,12 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String employee_id, String name, String surname, String date_of_birth, String adress, String jop_position, String phone_number, String travel_time, String contract_duration, String wage) {
+    public Employee(String employee_id, String name, String surname, String date_of_birth, String address, String jop_position, String phone_number, String travel_time, String contract_duration, String wage) {
         this.employee_id = employee_id;
         this.name = name;
         this.surname = surname;
         this.date_of_birth = date_of_birth;
-        this.adress = adress;
+        this.address = address;
         this.jop_position = jop_position;
         this.phone_number = phone_number;
         this.travel_time = travel_time;
@@ -61,12 +61,12 @@ public class Employee {
         this.date_of_birth = date_of_birth;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getJop_position() {
