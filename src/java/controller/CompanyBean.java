@@ -1,20 +1,15 @@
-
 package controller;
 
 import dao.CompanyDAO;
-
-
 import entity.Company;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
-
 import java.util.List;
-
 
 @Named(value = "companyBean")
 @SessionScoped
-public class CompanyBean implements Serializable{
+public class CompanyBean implements Serializable {
 
     private Company entity;
     private CompanyDAO dao;

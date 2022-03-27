@@ -82,8 +82,6 @@
             </h:dataTable>
 
             <hr />
-
-
         </h:form>
         <h:form>
             Company ID: <h:inputText value="#{companyBean.entity.company_ID}" />
@@ -130,10 +128,87 @@
 
 
             </h:dataTable>
-
             <hr />
+        </h:form>
 
 
+        <h:form>
+            Employee ID: <h:inputText value="#{employeeBean.entity.employee_id}" />
+            <br></br>
+            Name: <h:inputText value="#{employeeBean.entity.name}" />
+            <br></br>
+            Surname: <h:inputText value="#{employeeBean.entity.surname}" />
+            <br></br>
+            Date of Birth <h:inputText value="#{employeeBean.entity.date_of_birth}" />
+            <br></br>
+            Adress: <h:inputText value="#{employeeBean.entity.adress}" />
+            <br></br>
+            Jop position: <h:inputText value="#{employeeBean.entity.jop_position}" />
+            <br></br>
+            Phone Number: <h:inputText value="#{employeeBean.entity.phone_number}" />
+            <br></br>
+            Travel Time: <h:inputText value="#{employeeBean.entity.travel_time}" />
+            <br></br>
+            Contract Duration: <h:inputText value="#{employeeBean.entity.contract_duration}" />
+            <br></br>
+            wage: <h:inputText value="#{employeeBean.entity.wage}" />
+            <br></br>
+
+            <h:commandButton action="#{employeeBean.create}" value="Kaydet" />  
+
+            <h:dataTable value="#{employeeBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">Employe_id</f:facet>
+                        #{c.employee_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Name</f:facet>
+                        #{c.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Surname</f:facet>
+                        #{c.surname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Date of Birth</f:facet>
+                        #{c.date_of_birth}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Adress</f:facet>
+                        #{c.adress}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Jop_Position</f:facet>
+                        #{c.jop_position}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Phone_Number</f:facet>
+                        #{c.phone_number}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Travel_Time</f:facet>
+                        #{c.travel_time}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Contract_duration</f:facet>
+                        #{c.contract_duration}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">wage</f:facet>
+                        #{c.wage}
+                </h:column>
+
+
+
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton action="#{employeeBean.delete(c)}" value="Sil" />
+                </h:column>
+
+
+            </h:dataTable>
+            <hr />
         </h:form>
 
 
