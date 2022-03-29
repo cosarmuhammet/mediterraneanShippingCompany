@@ -141,7 +141,7 @@
             <br></br>
             Date of Birth <h:inputText value="#{employeeBean.entity.date_of_birth}" />
             <br></br>
-            Adress: <h:inputText value="#{employeeBean.entity.address}" />
+            Address: <h:inputText value="#{employeeBean.entity.address}" />
             <br></br>
             Jop position: <h:inputText value="#{employeeBean.entity.jop_position}" />
             <br></br>
@@ -159,7 +159,7 @@
             <h:dataTable value="#{employeeBean.list}" var="c" >
 
                 <h:column>
-                    <f:facet name="header">Employe_id</f:facet>
+                    <f:facet name="header">Employee_id</f:facet>
                         #{c.employee_id}
                 </h:column>
                 <h:column>
@@ -175,7 +175,7 @@
                         #{c.date_of_birth}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Adress</f:facet>
+                    <f:facet name="header">Address</f:facet>
                         #{c.address}
                 </h:column>
                 <h:column>
@@ -210,6 +210,105 @@
             </h:dataTable>
             <hr />
         </h:form>
+        <h:form>
+
+            Harbor ID: <h:inputText value="#{harborBean.entity.harbor_ID}" />
+            <br></br>
+            Harbor Name: <h:inputText value="#{harborBean.entity.name}" />
+            <br></br>
+            Contract_Dates: <h:inputText value="#{harborBean.entity.contract_Dates}" />
+            <br></br>
+            Contract_Duration: <h:inputText value="#{harborBean.entity.contract_Duration}" />
+            <br></br>
+            <h:commandButton action="#{harborBean.create}" value="Kaydet" />  
+
+            <h:dataTable value="#{harborBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{c.harbor_ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                        #{c.name}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DATES</f:facet>
+                        #{c.contract_Dates}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DURATION</f:facet>
+                        #{c.contract_Duration}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton action="#{harborBean.delete(c)}" value="Sil" />
+                </h:column>
+
+            </h:dataTable>
+
+            <hr />
+        </h:form>
+        
+        <h:form>
+
+            Ship ID: <h:inputText value="#{shipBean.entity.ship_id}" />
+            <br></br>
+            Ship Name: <h:inputText value="#{shipBean.entity.name}" />
+            <br></br>
+            Length: <h:inputText value="#{shipBean.entity.lenght}" />
+            <br></br>
+            Height: <h:inputText value="#{shipBean.entity.height}" />
+            <br></br>
+            Production_date: <h:inputText value="#{shipBean.entity.production_date}" />
+            <br></br>
+            Capacity: <h:inputText value="#{shipBean.entity.capacity}" />
+            <br></br>
+            <h:commandButton action="#{shipBean.create}" value="Kaydet" />  
+
+            <h:dataTable value="#{shipBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{c.ship_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                        #{c.name}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">LENGTH</f:facet>
+                        #{c.lenght}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">HEIGHT</f:facet>
+                        #{c.height}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">PRODUCTION DATE</f:facet>
+                        #{c.production_date}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CAPACITY</f:facet>
+                        #{c.capacity}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton action="#{shipBean.delete(c)}" value="Sil" />
+                </h:column>
+
+            </h:dataTable>
+
+            <hr />
+        </h:form>
+
 
 
     </h:body>

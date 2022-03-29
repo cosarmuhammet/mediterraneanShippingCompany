@@ -109,4 +109,9 @@ public class Employee {
         this.wage = wage;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" + "employee_id=" + employee_id + ", name=" + name + ", surname=" + surname + ", date_of_birth=" + date_of_birth + ", address=" + address + ", jop_position=" + jop_position + ", phone_number=" + phone_number + ", travel_time=" + travel_time + ", contract_duration=" + contract_duration + ", wage=" + wage + '}';
+    }
+
 }

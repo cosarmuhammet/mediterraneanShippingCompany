@@ -1,23 +1,24 @@
- package dao;
+package dao;
 
-import java.util.List;
-import util.DBConnection;
+import entity.Ship;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import entity.Company;
+import java.util.List;
+import util.DBConnection;
 
-public class CompanyDAO extends DBConnection {
+public class ShipDAO extends DBConnection {
 
     private Connection db;
 
-    public void CompanyDAO(Company c) {
+    public void ShipDAO(Ship c) {
         try {
 
             Statement st = this.getDb().createStatement();
 
-            String query = "insert into company (company_id,company_name,company_type,founder,year_of_foundation) values('" + c.getCompany_ID() + "', '" + c.getCompany_Name() + "', '" + c.getCompany_type() + "', '" + c.getFounder() + "', '" + c.getYear_of_Foundation() + "')";
+            String query = "insert into ship (ship_id, ship_name, length, height ,production_date,capacity) values('" + c.getShip_id() + "', '" + c.getName() + "', '" + c.getLenght() + "', "
+                    + "'" + c.getHeight() + "' ,'" + c.getProduction_date() + "' ,'" + c.getCapacity() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -26,11 +27,11 @@ public class CompanyDAO extends DBConnection {
         }
     }
 
-    public void delete(Company c) {
+    public void delete(Ship c) {
 
         try {
             Statement st = this.getDb().createStatement();
-            String query2 = "delete from company where company_id='" + c.getCompany_ID() + "'";
+            String query2 = "delete from ship where ship_id='" + c.getShip_id() + "'";
             int r = st.executeUpdate(query2);
 
         } catch (Exception ex) {
@@ -38,26 +39,26 @@ public class CompanyDAO extends DBConnection {
         }
     }
 
-    public List<Company> getCategoryList() {
+    public List<Ship> getCategoryList() {
 
-        List<Company> companyList = new ArrayList<>();
+        List<Ship> categoryList = new ArrayList<>();
 
         try {
             Statement st = this.getDb().createStatement();
 
-            String query = "select * from company order by company_id";
+            String query = "select * from ship order by ship_id";
 
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
 
-                companyList.add(new Company(rs.getString("Company_ID"), rs.getString("Company_Name"), rs.getString("Company_type"), rs.getString("Founder"), rs.getString("Year_of_Foundation")));//Değişkenler company sınıfı içeerisindeki iismlerle aynı olacak
+                categoryList.add(new Ship(rs.getString("ship_id"), rs.getString("ship_name"), rs.getString("length"), rs.getString("height"), rs.getString("production_date"), rs.getString("capacity")));
             }
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return companyList;
+        return categoryList;
     }
 
     public Connection getDb() {

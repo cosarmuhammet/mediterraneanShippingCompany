@@ -60,4 +60,10 @@ public class Company {
         this.Year_of_Foundation = Year_of_Foundation;
     }
 
+    @Override
+    public String toString() {
+        return "Company{" + "Company_ID=" + Company_ID + ", Company_Name=" + Company_Name + ", Company_type=" + Company_type + ", Founder=" + Founder + ", Year_of_Foundation=" + Year_of_Foundation + '}';
+    }
+
+    
 }
