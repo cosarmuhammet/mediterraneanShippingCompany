@@ -1,4 +1,3 @@
-
 package controller;
 
 import dao.HarborDAO;
@@ -12,9 +11,8 @@ import java.io.Serializable;
 @Named(value = "harborBean")
 @SessionScoped
 
+public class HarborBean implements Serializable {
 
-public class HarborBean implements Serializable{
-    
     private Harbor entity;
     private HarborDAO dao;
     private List<Harbor> list;
@@ -22,16 +20,24 @@ public class HarborBean implements Serializable{
     public HarborBean() {
 
     }
-    public void create(){
+
+    public void create() {
         this.getDao().HarborDAO(entity);
+        this.entity = new Harbor();
     }
-    
-    public void delete(Harbor c){
+
+    public void update() {
+        this.getDao().update(entity);
+        this.entity = new Harbor();
+    }
+
+    public void delete(Harbor c) {
         this.getDao().delete(c);
+        this.entity = new Harbor();
     }
 
     public Harbor getEntity() {
-         if( this.entity == null ){
+        if (this.entity == null) {
             this.entity = new Harbor();
         }
         return entity;
@@ -42,7 +48,7 @@ public class HarborBean implements Serializable{
     }
 
     public HarborDAO getDao() {
-        if( this.dao == null ){
+        if (this.dao == null) {
             this.dao = new HarborDAO();
         }
         return dao;
@@ -60,5 +66,5 @@ public class HarborBean implements Serializable{
     public void setList(List<Harbor> list) {
         this.list = list;
     }
-    
+
 }

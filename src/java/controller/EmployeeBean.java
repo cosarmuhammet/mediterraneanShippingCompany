@@ -20,10 +20,17 @@ public class EmployeeBean implements Serializable {
 
     public void create() {
         this.getDao().EmployeeDAO(entity);//gelen Employee nesnesini EmployeeDAO sınıfındaki constructor methoduna yollar
+        this.entity = new Employee();
+    }
+
+    public void update() {
+        this.getDao().update(entity);
+        this.entity = new Employee();
     }
 
     public void delete(Employee c) {//gelen Employee nesnesini EmployeeDAO sınıfındaki delete methoduna yollar
         this.getDao().delete(c);
+        this.entity = new Employee();
     }
 
     public Employee getEntity() {

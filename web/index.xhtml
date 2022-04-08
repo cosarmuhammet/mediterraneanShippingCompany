@@ -5,6 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
     </h:head>
     <h:body>
 
@@ -15,8 +16,7 @@
             <br></br>
             <h:commandButton action="#{countryBean.create}" value="Kaydet" />  
 
-            <h:dataTable value="#{countryBean.list}" var="c" >
-
+            <h:dataTable styleClass="table table-striped" value="#{countryBean.list}" var="c" >
                 <h:column>
                     <f:facet name="header">ID</f:facet>
                         #{c.country_ID}
@@ -30,18 +30,11 @@
                     <f:facet name="header">DELETE</f:facet>
                     <h:commandButton action="#{countryBean.delete(c)}" value="Sil" />
                 </h:column>
-
-
             </h:dataTable>
-
             <hr />
-
-
         </h:form>
 
-
         <h:form>
-
             Brand ID: <h:inputText value="#{brandBean.entity.brand_ID}" />
             <br></br>
             Brand Name: <h:inputText value="#{brandBean.entity.name}" />
@@ -52,7 +45,7 @@
             <br></br>
             <h:commandButton action="#{brandBean.create}" value="Kaydet" />  
 
-            <h:dataTable value="#{brandBean.list}" var="c" >
+            <h:dataTable styleClass="table table-striped" value="#{brandBean.list}" var="c" >
 
                 <h:column>
                     <f:facet name="header">ID</f:facet>
@@ -97,7 +90,7 @@
 
             <h:commandButton action="#{companyBean.create}" value="Kaydet" />  
 
-            <h:dataTable value="#{companyBean.list}" var="c" >
+            <h:dataTable styleClass="table table-striped" value="#{companyBean.list}" var="c" >
 
                 <h:column>
                     <f:facet name="header">Company ID</f:facet>
@@ -135,10 +128,9 @@
         <h:form>
             Employee ID: <h:inputText value="#{employeeBean.entity.employee_id}" />
             <br></br>
-            Name: <h:inputText value="#{employeeBean.entity.name}" />
+            Name: <h:inputText value="#{employeeBean.entity.employe_name}" />
             <br></br>
-            Surname: <h:inputText value="#{employeeBean.entity.surname}" />
-            <br></br>
+
             Date of Birth <h:inputText value="#{employeeBean.entity.date_of_birth}" />
             <br></br>
             Address: <h:inputText value="#{employeeBean.entity.address}" />
@@ -154,9 +146,10 @@
             wage: <h:inputText value="#{employeeBean.entity.wage}" />
             <br></br>
 
-            <h:commandButton action="#{employeeBean.create}" value="Kaydet" />  
+            <h:commandButton rendered="#{employeeBean.entity.employee_id ==null}" action="#{employeeBean.create}" value="Kaydet" />  
+            <h:commandButton rendered="#{employeeBean.entity.employee_id !=null}" action="#{employeeBean.update()}" value="update"/>
 
-            <h:dataTable value="#{employeeBean.list}" var="c" >
+            <h:dataTable styleClass="table table-striped" value="#{employeeBean.list}" var="c" >
 
                 <h:column>
                     <f:facet name="header">Employee_id</f:facet>
@@ -164,12 +157,9 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header"> Name</f:facet>
-                        #{c.name}
+                        #{c.employe_name}
                 </h:column>
-                <h:column>
-                    <f:facet name="header">Surname</f:facet>
-                        #{c.surname}
-                </h:column>
+
                 <h:column>
                     <f:facet name="header">Date of Birth</f:facet>
                         #{c.date_of_birth}
@@ -198,12 +188,10 @@
                     <f:facet name="header">wage</f:facet>
                         #{c.wage}
                 </h:column>
-
-
-
                 <h:column>
-                    <f:facet name="header">DELETE</f:facet>
+                    <f:facet name="header">Aplication</f:facet>
                     <h:commandButton action="#{employeeBean.delete(c)}" value="Sil" />
+                    <h:commandButton action="#{employeeBean.setEntity(c)}" value="Update" />
                 </h:column>
 
 
@@ -212,48 +200,57 @@
         </h:form>
         <h:form>
 
-            Harbor ID: <h:inputText value="#{harborBean.entity.harbor_ID}" />
+            Harbor ID: <h:inputText value="#{harborBean.entity.harbor_id}" />
             <br></br>
-            Harbor Name: <h:inputText value="#{harborBean.entity.name}" />
+            Country ID: <h:inputText value="#{harborBean.entity.country_id}" />
             <br></br>
-            Contract_Dates: <h:inputText value="#{harborBean.entity.contract_Dates}" />
+            Harbor Name: <h:inputText value="#{harborBean.entity.harbor_name}" />
             <br></br>
-            Contract_Duration: <h:inputText value="#{harborBean.entity.contract_Duration}" />
+            Contract_Dates: <h:inputText value="#{harborBean.entity.contract_dates}" />
             <br></br>
-            <h:commandButton action="#{harborBean.create}" value="Kaydet" />  
+            Contract_Duration: <h:inputText value="#{harborBean.entity.contract_duration}" />
+            <br></br>
+            <h:commandButton rendered="#{harborBean.entity.harbor_id ==null}"  action="#{harborBean.create}" value="Save" />  
+            <h:commandButton rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.update()}" value="Update"/>
 
-            <h:dataTable value="#{harborBean.list}" var="c" >
+
+            <h:dataTable styleClass="table table-striped" value="#{harborBean.list}" var="c" >
 
                 <h:column>
                     <f:facet name="header">ID</f:facet>
-                        #{c.harbor_ID}
+                        #{c.harbor_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Country ID</f:facet>
+                        #{c.country_id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">NAME</f:facet>
-                        #{c.name}
+                        #{c.harbor_name}
                 </h:column>
 
 
                 <h:column>
                     <f:facet name="header">CONTRACT_DATES</f:facet>
-                        #{c.contract_Dates}
+                        #{c.contract_dates}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">CONTRACT_DURATION</f:facet>
-                        #{c.contract_Duration}
+                        #{c.contract_duration}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">DELETE</f:facet>
-                    <h:commandButton action="#{harborBean.delete(c)}" value="Sil" />
+                    <f:facet name="header">Aplication</f:facet>
+                    <h:commandButton action="#{harborBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{harborBean.setEntity(c)}" value="Update" />
                 </h:column>
 
             </h:dataTable>
 
             <hr />
         </h:form>
-        
+
         <h:form>
 
             Ship ID: <h:inputText value="#{shipBean.entity.ship_id}" />
@@ -270,7 +267,7 @@
             <br></br>
             <h:commandButton action="#{shipBean.create}" value="Kaydet" />  
 
-            <h:dataTable value="#{shipBean.list}" var="c" >
+            <h:dataTable styleClass="table table-striped" value="#{shipBean.list}" var="c" >
 
                 <h:column>
                     <f:facet name="header">ID</f:facet>
@@ -305,7 +302,6 @@
                 </h:column>
 
             </h:dataTable>
-
             <hr />
         </h:form>
 

@@ -3,8 +3,7 @@ package entity;
 public class Employee {
 
     private String employee_id;
-    private String name;
-    private String surname;
+    private String employe_name;
     private String date_of_birth;
     private String address;
     private String jop_position;
@@ -16,10 +15,9 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String employee_id, String name, String surname, String date_of_birth, String address, String jop_position, String phone_number, String travel_time, String contract_duration, String wage) {
+    public Employee(String employee_id, String name, String date_of_birth, String address, String jop_position, String phone_number, String travel_time, String contract_duration, String wage) {
         this.employee_id = employee_id;
-        this.name = name;
-        this.surname = surname;
+        this.employe_name = name;
         this.date_of_birth = date_of_birth;
         this.address = address;
         this.jop_position = jop_position;
@@ -37,20 +35,12 @@ public class Employee {
         this.employee_id = employee_id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmploye_name() {
+        return employe_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setEmploye_name(String name) {
+        this.employe_name = name;
     }
 
     public String getDate_of_birth() {
@@ -111,7 +101,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "employee_id=" + employee_id + ", name=" + name + ", surname=" + surname + ", date_of_birth=" + date_of_birth + ", address=" + address + ", jop_position=" + jop_position + ", phone_number=" + phone_number + ", travel_time=" + travel_time + ", contract_duration=" + contract_duration + ", wage=" + wage + '}';
+        return "Employee{" + "employee_id=" + employee_id + ", name=" + employe_name + ", date_of_birth=" + date_of_birth + ", address=" + address + ", jop_position=" + jop_position + ", phone_number=" + phone_number + ", travel_time=" + travel_time + ", contract_duration=" + contract_duration + ", wage=" + wage + '}';
     }
 
 }
