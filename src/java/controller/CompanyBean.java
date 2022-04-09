@@ -20,10 +20,17 @@ public class CompanyBean implements Serializable {
 
     public void create() {
         this.getDao().CompanyDAO(entity);//gelen Company nesnesini companyDAO sınıfındaki constructor methoduna yollar
+        this.entity = new Company();
+    }
+
+    public void update() {
+        this.getDao().update(entity);//gelen Company nesnesini companyDAO sınıfındaki constructor methoduna yollar
+        this.entity = new Company();
     }
 
     public void delete(Company c) {//gelen Company nesnesini companyDAO sınıfındaki delete methoduna yollar
         this.getDao().delete(c);
+        this.entity = new Company();
     }
 
     public Company getEntity() {

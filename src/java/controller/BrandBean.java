@@ -18,16 +18,19 @@ public class BrandBean implements Serializable {
     public BrandBean() {
 
     }
-    public void create(){
+
+    public void create() {
         this.getDao().BrandDAO(entity);
+        this.entity = new Brand();
     }
-    
-    public void delete(Brand c){
+
+    public void delete(Brand c) {
         this.getDao().delete(c);
+        this.entity = new Brand();
     }
 
     public Brand getEntity() {
-         if( this.entity == null ){
+        if (this.entity == null) {
             this.entity = new Brand();
         }
         return entity;
@@ -38,7 +41,7 @@ public class BrandBean implements Serializable {
     }
 
     public BrandDAO getDao() {
-        if( this.dao == null ){
+        if (this.dao == null) {
             this.dao = new BrandDAO();
         }
         return dao;
@@ -56,7 +59,5 @@ public class BrandBean implements Serializable {
     public void setList(List<Brand> list) {
         this.list = list;
     }
-    
-    
 
 }

@@ -3,9 +3,9 @@ package entity;
 public class Ship {
 
     private String ship_id;
-    private String name;
-    private String lenght;
-    private String height;
+    private String employee_id;
+    private String ship_name;
+    private String dimension;
     private String production_date;
     private String capacity;
 
@@ -13,11 +13,11 @@ public class Ship {
 
     }
 
-    public Ship(String ship_ID, String name, String lenght, String height, String production_date, String capacity) {
-        this.ship_id = ship_ID;
-        this.name = name;
-        this.lenght = lenght;
-        this.height = height;
+    public Ship(String ship_id, String employee_id, String ship_name, String dimension, String production_date, String capacity) {
+        this.ship_id = ship_id;
+        this.employee_id = employee_id;
+        this.ship_name = ship_name;
+        this.dimension = dimension;
         this.production_date = production_date;
         this.capacity = capacity;
     }
@@ -30,28 +30,28 @@ public class Ship {
         this.ship_id = ship_id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmployee_id() {
+        return employee_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployee_id(String employee_id) {
+        this.employee_id = employee_id;
     }
 
-    public String getLenght() {
-        return lenght;
+    public String getShip_name() {
+        return ship_name;
     }
 
-    public void setLenght(String lenght) {
-        this.lenght = lenght;
+    public void setShip_name(String ship_name) {
+        this.ship_name = ship_name;
     }
 
-    public String getHeight() {
-        return height;
+    public String getDimension() {
+        return dimension;
     }
 
-    public void setHeight(String height) {
-        this.height = height;
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 
     public String getProduction_date() {
@@ -72,7 +72,8 @@ public class Ship {
 
     @Override
     public String toString() {
-        return "Ship{" + "ship_ID=" + ship_id + ", name=" + name + ", uzunluk=" + lenght + ", height=" + height + ", production_date=" + production_date + ", capacity=" + capacity + '}';
+        return "Ship{" + "ship_id=" + ship_id + ", employee_id=" + employee_id + ", ship_name=" + ship_name + ", dimension=" + dimension + ", production_date=" + production_date + ", capacity=" + capacity + '}';
     }
 
+  
 }

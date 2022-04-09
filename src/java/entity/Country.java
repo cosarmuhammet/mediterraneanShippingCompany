@@ -1,38 +1,38 @@
 package entity;
 public class Country {   
-    private String country_ID;
-    private String name;
+    private String country_id;
+    private String country_name;
     
     public Country(){
     }
 
-    public Country(String country_ID, String name) {
-        this.country_ID = country_ID;
-        this.name = name;
+    public Country(String country_id, String country_name) {
+        this.country_id = country_id;
+        this.country_name = country_name;
     }
 
-    public String getCountry_ID() {
-        return country_ID;
+    public String getCountry_id() {
+        return country_id;
     }
 
-    public void setCountry_ID(String country_ID) {
-        this.country_ID = country_ID;
+    public void setCountry_id(String country_id) {
+        this.country_id = country_id;
     }
 
-    public String getName() {
-        return name;
+    public String getCountry_name() {
+        return country_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCountry_name(String country_name) {
+        this.country_name = country_name;
     }
 
     @Override
     public String toString() {
-        return "Country{" + "country_ID=" + country_ID + ", name=" + name + '}';
+        return "Country{" + "country_id=" + country_id + ", country_name=" + country_name + '}';
     }
+
+   
     
-    
-    
-    
+      
 }

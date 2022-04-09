@@ -17,8 +17,8 @@ public class ShipDAO extends DBConnection {
 
             Statement st = this.getDb().createStatement();
 
-            String query = "insert into ship (ship_id, ship_name, length, height ,production_date,capacity) values('" + c.getShip_id() + "', '" + c.getName() + "', '" + c.getLenght() + "', "
-                    + "'" + c.getHeight() + "' ,'" + c.getProduction_date() + "' ,'" + c.getCapacity() + "')";
+            String query = "insert into ship (ship_id,employee_id, ship_name, dimension ,production_date,capacity) values('" + c.getShip_id() + "','" + c.getEmployee_id() + "', '" + c.getShip_id() + "', '" + c.getDimension() + "', "
+                    + "'" + c.getProduction_date() + "' ,'" + c.getCapacity() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -26,6 +26,7 @@ public class ShipDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
     }
+
 
     public void delete(Ship c) {
 
@@ -52,7 +53,7 @@ public class ShipDAO extends DBConnection {
 
             while (rs.next()) {
 
-                categoryList.add(new Ship(rs.getString("ship_id"), rs.getString("ship_name"), rs.getString("length"), rs.getString("height"), rs.getString("production_date"), rs.getString("capacity")));
+                categoryList.add(new Ship(rs.getString("ship_id"), rs.getString("employee_id"), rs.getString("ship_name"), rs.getString("dimension"), rs.getString("production_date"), rs.getString("capacity")));
             }
 
         } catch (Exception ex) {

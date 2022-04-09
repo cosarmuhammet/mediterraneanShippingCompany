@@ -17,7 +17,7 @@ public class BrandDAO extends DBConnection {
 
             Statement st = this.getDb().createStatement();
 
-            String query = "insert into brand (brand_ID, name, contract_dates, contract_duration) values('"+c.getBrand_ID()+"', '"+c.getName()+"', '" + c.getContract_Dates()+"', '"+ c.getContract_Duration()+ "')";
+            String query = "insert into brand (brand_id,country_id, brand_name, contract_dates, contract_duration) values('" + c.getBrand_id() + "','" + c.getCountry_id() + "', '" + c.getBrand_name() + "', '" + c.getContract_Dates() + "', '" + c.getContract_Duration() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -30,7 +30,7 @@ public class BrandDAO extends DBConnection {
 
         try {
             Statement st = this.getDb().createStatement();
-            String query2 = "delete from brand where brand_ID='" + c.getBrand_ID() + "'";
+            String query2 = "delete from brand where brand_id='" + c.getBrand_id() + "'";
             int r = st.executeUpdate(query2);
 
         } catch (Exception ex) {
@@ -45,13 +45,13 @@ public class BrandDAO extends DBConnection {
         try {
             Statement st = this.getDb().createStatement();
 
-            String query = "select * from brand order by brand_ID";
+            String query = "select * from brand order by brand_id";
 
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
 
-                categoryList.add(new Brand(rs.getString("brand_ID"), rs.getString("name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));
+                categoryList.add(new Brand(rs.getString("brand_id"), rs.getString("country_id"), rs.getString("brand_name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));
             }
 
         } catch (Exception ex) {

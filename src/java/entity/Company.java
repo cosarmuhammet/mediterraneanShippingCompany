@@ -2,68 +2,82 @@
 package entity;
 
 public class Company {
-    private String Company_ID;
-    private String Company_Name;
-    private String Company_type;
-    private String Founder;
-    private String Year_of_Foundation;
+    private String company_id;
+    private String ship_id;
+     private String country_id;
+      private String company_name;
+    private String company_type;
+    private String founder;
+    private String year_of_foundation;
 
     public Company() {
     }
-    //constructor method
-    public Company(String Company_ID, String Company_Name, String Company_type, String Founder, String Year_of_Foundation) {
-        this.Company_ID = Company_ID;
-        this.Company_Name = Company_Name;
-        this.Company_type = Company_type;
-        this.Founder = Founder;
-        this.Year_of_Foundation = Year_of_Foundation;
+
+    public Company(String company_id, String ship_id, String country_id, String company_name, String company_type, String founder, String year_of_foundation) {
+        this.company_id = company_id;
+        this.ship_id = ship_id;
+        this.country_id = country_id;
+        this.company_name = company_name;
+        this.company_type = company_type;
+        this.founder = founder;
+        this.year_of_foundation = year_of_foundation;
     }
 
-    //gemi idsi ve ülke id eklenecek
-    public String getCompany_ID() {
-        return Company_ID;
+    public String getCompany_id() {
+        return company_id;
     }
 
-    public void setCompany_ID(String Company_ID) {
-        this.Company_ID = Company_ID;
+    public void setCompany_id(String company_id) {
+        this.company_id = company_id;
     }
 
-    public String getCompany_Name() {
-        return Company_Name;
+    public String getShip_id() {
+        return ship_id;
     }
 
-    public void setCompany_Name(String Company_Name) {
-        this.Company_Name = Company_Name;
+    public void setShip_id(String ship_id) {
+        this.ship_id = ship_id;
+    }
+
+    public String getCountry_id() {
+        return country_id;
+    }
+
+    public void setCountry_id(String country_id) {
+        this.country_id = country_id;
+    }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
     }
 
     public String getCompany_type() {
-        return Company_type;
+        return company_type;
     }
 
-    public void setCompany_type(String Company_type) {
-        this.Company_type = Company_type;
+    public void setCompany_type(String company_type) {
+        this.company_type = company_type;
     }
 
     public String getFounder() {
-        return Founder;
+        return founder;
     }
 
-    public void setFounder(String Founder) {
-        this.Founder = Founder;
+    public void setFounder(String founder) {
+        this.founder = founder;
     }
 
-    public String getYear_of_Foundation() {
-        return Year_of_Foundation;
+    public String getYear_of_foundation() {
+        return year_of_foundation;
     }
 
-    public void setYear_of_Foundation(String Year_of_Foundation) {
-        this.Year_of_Foundation = Year_of_Foundation;
+    public void setYear_of_foundation(String year_of_foundation) {
+        this.year_of_foundation = year_of_foundation;
     }
-
-    @Override
-    public String toString() {
-        return "Company{" + "Company_ID=" + Company_ID + ", Company_Name=" + Company_Name + ", Company_type=" + Company_type + ", Founder=" + Founder + ", Year_of_Foundation=" + Year_of_Foundation + '}';
-    }
-
+    
     
 }

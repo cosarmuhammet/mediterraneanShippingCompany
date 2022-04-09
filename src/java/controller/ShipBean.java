@@ -22,10 +22,14 @@ public class ShipBean implements Serializable {
 
     public void create() {
         this.getDao().ShipDAO(entity);
+        this.entity=new Ship();
+        
     }
+  
 
     public void delete(Ship c) {
         this.getDao().delete(c);
+         this.entity=new Ship();
     }
 
     public Ship getEntity() {

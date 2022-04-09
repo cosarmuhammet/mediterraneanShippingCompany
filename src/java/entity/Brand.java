@@ -2,36 +2,45 @@ package entity;
 
 public class Brand {
 
-    private String brand_ID;
-    private String name;
+    private String brand_id;
+    private String country_id;
+    private String brand_name;
     private String contract_Dates;
     private String contract_Duration;
 
     public Brand() {
     }
 
-    public Brand(String brand_ID, String name, String contract_Dates, String contract_Duration){
-        this.brand_ID=brand_ID;
-        this.name=name;
-        this.contract_Dates=contract_Dates;
-        this.contract_Duration=contract_Duration;
-  
-    }
-    
-    public String getBrand_ID() {
-        return brand_ID;
+    public Brand(String brand_id, String country_id, String brand_name, String contract_Dates, String contract_Duration) {
+        this.brand_id = brand_id;
+        this.country_id = country_id;
+        this.brand_name = brand_name;
+        this.contract_Dates = contract_Dates;
+        this.contract_Duration = contract_Duration;
     }
 
-    public void setBrand_ID(String brand_ID) {
-        this.brand_ID = brand_ID;
+    public String getBrand_id() {
+        return brand_id;
     }
 
-    public String getName() {
-        return name;
+    public void setBrand_id(String brand_id) {
+        this.brand_id = brand_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCountry_id() {
+        return country_id;
+    }
+
+    public void setCountry_id(String country_id) {
+        this.country_id = country_id;
+    }
+
+    public String getBrand_name() {
+        return brand_name;
+    }
+
+    public void setBrand_name(String brand_name) {
+        this.brand_name = brand_name;
     }
 
     public String getContract_Dates() {
@@ -52,7 +61,7 @@ public class Brand {
 
     @Override
     public String toString() {
-        return "Brand{" + "brand_ID=" + brand_ID + ", name=" + name + ", contract_Dates=" + contract_Dates + ", contract_Duration=" + contract_Duration + '}';
+        return "Brand{" + "brand_id=" + brand_id + ", country_id=" + country_id + ", brand_name=" + brand_name + ", contract_Dates=" + contract_Dates + ", contract_Duration=" + contract_Duration + '}';
     }
 
 }

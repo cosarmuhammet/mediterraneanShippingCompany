@@ -17,7 +17,21 @@ public class CountryDAO extends DBConnection {
 
             Statement st = this.getDb().createStatement();
 
-            String query = "insert into country (country_ID, name) values('" + c.getCountry_ID() + "', '" + c.getName() + "')";
+            String query = "insert into country (country_id, country_name) values('" + c.getCountry_id() + "', '" + c.getCountry_name() + "')";
+
+            int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void update(Country c) {
+        try {
+
+            Statement st = this.getDb().createStatement();
+
+            String query = "update country set country_name='" + c.getCountry_name() + "' where country_id='" + c.getCountry_id() + "'   ";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -30,7 +44,7 @@ public class CountryDAO extends DBConnection {
 
         try {
             Statement st = this.getDb().createStatement();
-            String query2 = "delete from country where country_ID='" + c.getCountry_ID() + "'";
+            String query2 = "delete from country where country_id='" + c.getCountry_id() + "'";
             int r = st.executeUpdate(query2);
 
         } catch (Exception ex) {
@@ -45,13 +59,13 @@ public class CountryDAO extends DBConnection {
         try {
             Statement st = this.getDb().createStatement();
 
-            String query = "select * from country order by country_ID";
+            String query = "select * from country order by country_id";
 
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
 
-                categoryList.add(new Country(rs.getString("country_ID"), rs.getString("name")));
+                categoryList.add(new Country(rs.getString("country_id"), rs.getString("country_name")));
             }
 
         } catch (Exception ex) {
