@@ -24,6 +24,11 @@ public class BrandBean implements Serializable {
         this.entity = new Brand();
     }
 
+    public void update() {
+        this.getDao().update(entity);
+        this.entity = new Brand();
+    }
+
     public void delete(Brand c) {
         this.getDao().delete(c);
         this.entity = new Brand();

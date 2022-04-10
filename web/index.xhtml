@@ -29,7 +29,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{countryBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{countryBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{countryBean.setEntity(c)}" value="Update" />
                 </h:column>
             </h:dataTable>
@@ -77,7 +77,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{brandBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{brandBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{brandBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -138,7 +138,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{companyBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{companyBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{companyBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -213,7 +213,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{employeeBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{employeeBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{employeeBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -265,7 +265,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{harborBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{harborBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{harborBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -299,7 +299,7 @@
                         #{c.ship_id}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Employee id</f:facet>
+                    <f:facet name="header">Employye id</f:facet>
                         #{c.employee_id}
                 </h:column>
                 <h:column>
@@ -324,16 +324,13 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{shipBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{shipBean.delete(c)}" value="Del" />
                     <h:commandButton action="#{shipBean.setEntity(c)}" value="Update" />
                 </h:column>
 
             </h:dataTable>
             <hr />
         </h:form>
-
-
-
     </h:body>
 </html>
 

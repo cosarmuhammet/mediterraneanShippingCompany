@@ -70,10 +70,8 @@ public class Ship {
         this.capacity = capacity;
     }
 
-    @Override
-    public String toString() {
-        return "Ship{" + "ship_id=" + ship_id + ", employee_id=" + employee_id + ", ship_name=" + ship_name + ", dimension=" + dimension + ", production_date=" + production_date + ", capacity=" + capacity + '}';
-    }
-
   
+
+ 
+
 }

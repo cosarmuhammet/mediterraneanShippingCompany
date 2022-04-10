@@ -23,10 +23,16 @@ public class CountryBean implements Serializable {
     
     public void create(){
         this.getDao().CountryDAO(entity);
+        this.entity=new Country();
     }
     
     public void delete(Country c){
         this.getDao().delete(c);
+          this.entity=new Country();
+    }
+    public void update(){
+        this.getDao().update(entity);
+        this.entity=new Country();
     }
 
     public Country getEntity() {

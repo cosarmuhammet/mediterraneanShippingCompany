@@ -64,4 +64,6 @@ public class Brand {
         return "Brand{" + "brand_id=" + brand_id + ", country_id=" + country_id + ", brand_name=" + brand_name + ", contract_Dates=" + contract_Dates + ", contract_Duration=" + contract_Duration + '}';
     }
 
+  
+
 }

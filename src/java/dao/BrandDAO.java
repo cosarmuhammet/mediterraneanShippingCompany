@@ -25,6 +25,17 @@ public class BrandDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
     }
+    public void update(Brand c) {
+        try {
+            Statement st = this.getDb().createStatement();
+
+            String query = "update brand set country_id='" + c.getCountry_id() + "',brand_name='" + c.getBrand_name()+ "',contract_dates='" + c.getContract_Dates()+ "', contract_duration='" + c.getContract_Duration()+ "'   where brand_id='" + c.getBrand_id()+ "' ";
+            int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
 
     public void delete(Brand c) {
 

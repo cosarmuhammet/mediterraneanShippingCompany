@@ -25,7 +25,10 @@ public class ShipBean implements Serializable {
         this.entity=new Ship();
         
     }
-  
+    public void update(){
+       this.getDao().update(entity);
+        this.entity=new Ship();
+    }
 
     public void delete(Ship c) {
         this.getDao().delete(c);
