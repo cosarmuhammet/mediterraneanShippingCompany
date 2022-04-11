@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Mediterranean Shipping Company</title>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
     </h:head>
     <h:body>
@@ -29,7 +29,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{countryBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{countryBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{countryBean.setEntity(c)}" value="Update" />
                 </h:column>
             </h:dataTable>
@@ -81,7 +81,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{brandBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{brandBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{brandBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -142,7 +142,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{companyBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{companyBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{companyBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -217,7 +217,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{employeeBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{employeeBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{employeeBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -272,7 +272,7 @@
 
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{harborBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{harborBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{harborBean.setEntity(c)}" value="Update" />
                 </h:column>
 
@@ -285,7 +285,11 @@
 
             Ship ID: <h:inputText value="#{shipBean.entity.ship_id}" />
             <br></br>
-            Employee ID: <h:inputText value="#{shipBean.entity.employee_id}" />
+            Employye ID: 
+            <h:selectOneMenu value="#{shipBean.entity.employee}" converter="employeeShip" >
+                <f:selectItems value="#{employeeBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.employe_name}"/>
+
+            </h:selectOneMenu>
             <br></br>
             Ship Name: <h:inputText value="#{shipBean.entity.ship_name}" />
             <br></br>
@@ -307,7 +311,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Employye id</f:facet>
-                        #{c.employee_id}
+                        #{c.employee.employe_name}
                 </h:column>
                 <h:column>
                     <f:facet name="header">NAME</f:facet>
@@ -331,7 +335,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Aplication</f:facet>
-                    <h:commandButton action="#{shipBean.delete(c)}" value="Del" />
+                    <h:commandButton action="#{shipBean.delete(c)}" value="Delete" />
                     <h:commandButton action="#{shipBean.setEntity(c)}" value="Update" />
                 </h:column>
 

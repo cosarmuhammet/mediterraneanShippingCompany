@@ -3,7 +3,7 @@ package entity;
 public class Ship {
 
     private String ship_id;
-    private String employee_id;
+    private Employee employee;
     private String ship_name;
     private String dimension;
     private String production_date;
@@ -13,9 +13,9 @@ public class Ship {
 
     }
 
-    public Ship(String ship_id, String employee_id, String ship_name, String dimension, String production_date, String capacity) {
+    public Ship(String ship_id, Employee employee_id, String ship_name, String dimension, String production_date, String capacity) {
         this.ship_id = ship_id;
-        this.employee_id = employee_id;
+        this.employee = employee_id;
         this.ship_name = ship_name;
         this.dimension = dimension;
         this.production_date = production_date;
@@ -30,12 +30,12 @@ public class Ship {
         this.ship_id = ship_id;
     }
 
-    public String getEmployee_id() {
-        return employee_id;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployee_id(String employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public String getShip_name() {
@@ -69,9 +69,5 @@ public class Ship {
     public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
-
-  
-
- 
 
 }

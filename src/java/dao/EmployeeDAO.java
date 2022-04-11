@@ -10,7 +10,6 @@ import util.DBConnection;
 
 public class EmployeeDAO extends DBConnection {
 
-
     public void EmployeeDAO(Employee c) {
         try {
             Statement st = this.getConnection().createStatement();
@@ -21,6 +20,30 @@ public class EmployeeDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
     }
+
+    public Employee findbyID(String id) {
+
+        Employee c = null;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from employee where employee_id='" + id + "' ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                c = new Employee(rs.getString("employee_id"), rs.getString("employee_name"), rs.getString("date_of_birth"), rs.getString("address"), rs.getString("jop_position"), rs.getString("phone_number"), rs.getString("travel_time"), rs.getString("contract_duration"), rs.getString("wage"));
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return c;
+
+    }
+
     public void update(Employee c) {
         try {
             Statement st = this.getConnection().createStatement();
@@ -65,7 +88,5 @@ public class EmployeeDAO extends DBConnection {
         }
         return EmployeeList;
     }
-
-
 
 }

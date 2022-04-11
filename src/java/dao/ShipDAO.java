@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Employee;
 import entity.Ship;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,14 +11,14 @@ import util.DBConnection;
 
 public class ShipDAO extends DBConnection {
 
-  
+    private EmployeeDAO emloyedao;
 
     public void ShipDAO(Ship c) {
         try {
 
             Statement st = this.getConnection().createStatement();
 
-            String query = "insert into ship (ship_id,employee_id, ship_name, dimension ,production_date,capacity) values('" + c.getShip_id() + "','" + c.getEmployee_id() + "', '" + c.getShip_name() + "', '" + c.getDimension() + "', "
+            String query = "insert into ship (ship_id,employee_id, ship_name, dimension ,production_date,capacity) values('" + c.getShip_id() + "','" + c.getEmployee().getEmployee_id() + "', '" + c.getShip_name() + "', '" + c.getDimension() + "', "
                     + "'" + c.getProduction_date() + "' ,'" + c.getCapacity() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
@@ -31,7 +32,7 @@ public class ShipDAO extends DBConnection {
         try {
             Statement st = this.getConnection().createStatement();
 
-            String query = "update ship set employee_id='" + c.getEmployee_id() + "',ship_name='" + c.getShip_name() + "' ,dimension='" + c.getDimension() + "',production_date='" + c.getProduction_date() + "', capacity='" + c.getCapacity() + "'where ship_id='" + c.getShip_id() + "' ";
+            String query = "update ship set employee_id='" + c.getEmployee().getEmployee_id() + "',ship_name='" + c.getShip_name() + "' ,dimension='" + c.getDimension() + "',production_date='" + c.getProduction_date() + "', capacity='" + c.getCapacity() + "'where ship_id='" + c.getShip_id() + "' ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -63,8 +64,8 @@ public class ShipDAO extends DBConnection {
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
-
-                categoryList.add(new Ship(rs.getString("ship_id"), rs.getString("employee_id"), rs.getString("ship_name"), rs.getString("dimension"), rs.getString("production_date"), rs.getString("capacity")));
+                Employee c = this.getEmloyedao().findbyID("employee_id");
+                categoryList.add(new Ship(rs.getString("ship_id"), c, rs.getString("ship_name"), rs.getString("dimension"), rs.getString("production_date"), rs.getString("capacity")));
             }
 
         } catch (Exception ex) {
@@ -73,5 +74,15 @@ public class ShipDAO extends DBConnection {
         return categoryList;
     }
 
+    public EmployeeDAO getEmloyedao() {
+        if (this.emloyedao == null) {
+            this.emloyedao = new EmployeeDAO();
+        }
+        return emloyedao;
+    }
+
+    public void setEmloyedao(EmployeeDAO emloyedao) {
+        this.emloyedao = emloyedao;
+    }
 
 }
