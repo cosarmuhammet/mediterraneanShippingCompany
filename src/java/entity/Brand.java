@@ -3,7 +3,7 @@ package entity;
 public class Brand {
 
     private String brand_id;
-    private String country_id;
+    private Country country;
     private String brand_name;
     private String contract_Dates;
     private String contract_Duration;
@@ -11,9 +11,9 @@ public class Brand {
     public Brand() {
     }
 
-    public Brand(String brand_id, String country_id, String brand_name, String contract_Dates, String contract_Duration) {
+    public Brand(String brand_id, Country country, String brand_name, String contract_Dates, String contract_Duration) {
         this.brand_id = brand_id;
-        this.country_id = country_id;
+        this.country = country;
         this.brand_name = brand_name;
         this.contract_Dates = contract_Dates;
         this.contract_Duration = contract_Duration;
@@ -27,12 +27,12 @@ public class Brand {
         this.brand_id = brand_id;
     }
 
-    public String getCountry_id() {
-        return country_id;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCountry_id(String country_id) {
-        this.country_id = country_id;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public String getBrand_name() {
@@ -59,11 +59,6 @@ public class Brand {
         this.contract_Duration = contract_Duration;
     }
 
-    @Override
-    public String toString() {
-        return "Brand{" + "brand_id=" + brand_id + ", country_id=" + country_id + ", brand_name=" + brand_name + ", contract_Dates=" + contract_Dates + ", contract_Duration=" + contract_Duration + '}';
-    }
-
-  
+ 
 
 }

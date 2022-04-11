@@ -10,11 +10,10 @@ import util.DBConnection;
 
 public class EmployeeDAO extends DBConnection {
 
-    private Connection db;
 
     public void EmployeeDAO(Employee c) {
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "insert into employee(employee_id,employee_name,date_of_birth,address,jop_position,phone_number,travel_time,contract_duration,wage) values( '" + c.getEmployee_id() + "', '" + c.getEmploye_name() + "', '" + c.getDate_of_birth() + "','" + c.getAddress() + "', '" + c.getJop_position() + "', '" + c.getPhone_number() + "', '" + c.getTravel_time() + "', '" + c.getContract_duration() + "','" + c.getWage() + "');  ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
@@ -24,7 +23,7 @@ public class EmployeeDAO extends DBConnection {
     }
     public void update(Employee c) {
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
             String query = "update employee set employee_name='" + c.getEmploye_name() + "', date_of_birth='" + c.getDate_of_birth() + "',address='" + c.getAddress() + "',jop_position='" + c.getJop_position() + "', phone_number='" + c.getPhone_number() + "',travel_time='" + c.getPhone_number() + "',contract_duration='" + c.getContract_duration() + "',wage='" + c.getWage() + "' where employee.employee_id='" + c.getEmployee_id() + "';            ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
         } catch (Exception ex) {
@@ -36,7 +35,7 @@ public class EmployeeDAO extends DBConnection {
     public void delete(Employee c) {
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
             String query2 = "delete from employee where employee_id='" + c.getEmployee_id() + "'";
             int r = st.executeUpdate(query2);
 
@@ -50,7 +49,7 @@ public class EmployeeDAO extends DBConnection {
         List<Employee> EmployeeList = new ArrayList<>();
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "select * from employee ";
 
@@ -67,15 +66,6 @@ public class EmployeeDAO extends DBConnection {
         return EmployeeList;
     }
 
-    public Connection getDb() {
-        if (this.db == null) {
-            this.db = this.connect();
-        }
-        return db;
-    }
 
-    public void setDb(Connection db) {
-        this.db = db;
-    }
 
 }

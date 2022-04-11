@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mc/Documents/GitHub/mediterraneanShippingCompany/web/index.xhtml</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/util/DBConnection.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/entity/Country.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/dao/BrandDAO.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/entity/Brand.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/controller/BrandBean.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/web/index.xhtml</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/dao/CountryDAO.java</file>
+            <file>file:/C:/Users/husam/Documents/GitHub/mediterraneanShippingCompany/src/java/converter/BrandConverter.java</file>
         </group>
     </open-files>
 </project-private>

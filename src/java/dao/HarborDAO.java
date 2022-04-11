@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Country;
 import entity.Harbor;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,14 +11,14 @@ import util.DBConnection;
 
 public class HarborDAO extends DBConnection {
 
-    private Connection db;
+    private CountryDAO countryDAO;
 
     public void HarborDAO(Harbor c) {
         try {
 
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
-            String query = "insert into harbor (harbor_id, country_id, harbor_name, contract_dates, contract_duration) values('" + c.getHarbor_id() + "','" + c.getCountry_id() + "', '" + c.getHarbor_name() + "', '" + c.getContract_dates() + "', '" + c.getContract_duration() + "')";//BURDAKİ İSİSMLER PGADMİNDEKİ  TABLO SÜTUNLARIYLA AYNI OLMAK ZORUNDA c.get******** de classtaki değişkenlelerle atyynı olmak zorunda
+            String query = "insert into harbor (harbor_id, country_id, harbor_name, contract_dates, contract_duration) values('" + c.getHarbor_id() + "','" + c.getCountry().getCountry_id() + "', '" + c.getHarbor_name() + "', '" + c.getContract_dates() + "', '" + c.getContract_duration() + "')";//BURDAKİ İSİSMLER PGADMİNDEKİ  TABLO SÜTUNLARIYLA AYNI OLMAK ZORUNDA c.get******** de classtaki değişkenlelerle atyynı olmak zorunda
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -28,9 +29,9 @@ public class HarborDAO extends DBConnection {
 
     public void update(Harbor c) {
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
-            String query = "update harbor set country_id='" + c.getCountry_id() + "',harbor_name='" + c.getHarbor_name() + "',contract_dates='" + c.getContract_dates() + "', contract_duration='" + c.getContract_duration() + "'   where harbor_id='" + c.getHarbor_id() + "' ";
+            String query = "update harbor set country_id='" + c.getCountry().getCountry_id() + "',harbor_name='" + c.getHarbor_name() + "',contract_dates='" + c.getContract_dates() + "', contract_duration='" + c.getContract_duration() + "'   where harbor_id='" + c.getHarbor_id() + "' ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -41,7 +42,7 @@ public class HarborDAO extends DBConnection {
     public void delete(Harbor c) {
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
             String query2 = "delete from harbor where harbor_id='" + c.getHarbor_id() + "'";
             int r = st.executeUpdate(query2);
 
@@ -55,15 +56,16 @@ public class HarborDAO extends DBConnection {
         List<Harbor> categoryList = new ArrayList<>();
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "select * from harbor order by harbor_id";
 
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
+                Country c = this.getCountryDAO().findbyID(rs.getString("country_id"));
 
-                categoryList.add(new Harbor(rs.getString("harbor_id"), rs.getString("country_id"), rs.getString("harbor_name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));///BURDAKİ İSİSMLER PGADMİNDEKİ  TABLO SÜTUNLARIYLA AYNI OLMAK ZORUNDA
+                categoryList.add(new Harbor(rs.getString("harbor_id"), c, rs.getString("harbor_name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));///BURDAKİ İSİSMLER PGADMİNDEKİ  TABLO SÜTUNLARIYLA AYNI OLMAK ZORUNDA
             }
 
         } catch (Exception ex) {
@@ -72,14 +74,15 @@ public class HarborDAO extends DBConnection {
         return categoryList;
     }
 
-    public Connection getDb() {
-        if (this.db == null) {
-            this.db = this.connect();
+    public CountryDAO getCountryDAO() {
+        if (this.countryDAO == null) {
+            this.countryDAO = new CountryDAO();
         }
-        return db;
+        return countryDAO;
     }
 
-    public void setDb(Connection db) {
-        this.db = db;
+    public void setCountryDAO(CountryDAO countryDAO) {
+        this.countryDAO = countryDAO;
     }
+
 }

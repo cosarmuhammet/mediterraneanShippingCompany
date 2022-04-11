@@ -39,7 +39,11 @@
         <h:form>
             Brand ID: <h:inputText value="#{brandBean.entity.brand_id}" />
             <br></br>
-            Country ID: <h:inputText value="#{brandBean.entity.country_id}" />
+            Country ID: 
+            <h:selectOneMenu value="#{brandBean.entity.country}" converter="countryBrand" >
+                <f:selectItems value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/>
+
+            </h:selectOneMenu>
             <br></br>
             Brand Name: <h:inputText value="#{brandBean.entity.brand_name}" />
             <br></br>
@@ -57,7 +61,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Country ID</f:facet>
-                        #{c.country_id}
+                        #{c.country.country_name}
                 </h:column>
                 <h:column>
                     <f:facet name="header">NAME</f:facet>
@@ -225,8 +229,11 @@
 
             Harbor ID: <h:inputText value="#{harborBean.entity.harbor_id}" />
             <br></br>
-            Country ID: <h:inputText value="#{harborBean.entity.country_id}" />
-            <br></br>
+            Country ID: 
+            <h:selectOneMenu value="#{harborBean.entity.country}" converter="countryHarbour" >
+                <f:selectItems value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/>
+
+            </h:selectOneMenu>
             Harbor Name: <h:inputText value="#{harborBean.entity.harbor_name}" />
             <br></br>
             Contract_Dates: <h:inputText value="#{harborBean.entity.contract_dates}" />
@@ -245,7 +252,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Country ID</f:facet>
-                        #{c.country_id}
+                        #{c.country.country_name}
                 </h:column>
                 <h:column>
                     <f:facet name="header">NAME</f:facet>

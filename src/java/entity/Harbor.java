@@ -3,7 +3,7 @@ package entity;
 public class Harbor {
 
     private String harbor_id;
-    private String country_id;
+    private Country country;
     private String harbor_name;
     private String contract_dates;
     private String contract_duration;
@@ -12,12 +12,12 @@ public class Harbor {
 
     }
 
-    public Harbor(String harbor_id, String country_id, String harbor_name, String contract_Dates, String contract_Duration) {
+    public Harbor(String harbor_id, Country country, String harbor_name, String contract_dates, String contract_duration) {
         this.harbor_id = harbor_id;
-        this.country_id = country_id;
+        this.country = country;
         this.harbor_name = harbor_name;
-        this.contract_dates = contract_Dates;
-        this.contract_duration = contract_Duration;
+        this.contract_dates = contract_dates;
+        this.contract_duration = contract_duration;
     }
 
     public String getHarbor_id() {
@@ -28,12 +28,12 @@ public class Harbor {
         this.harbor_id = harbor_id;
     }
 
-    public String getCountry_id() {
-        return country_id;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCountry_id(String country_id) {
-        this.country_id = country_id;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public String getHarbor_name() {
@@ -62,7 +62,7 @@ public class Harbor {
 
     @Override
     public String toString() {
-        return "Harbor{" + "harbor_id=" + harbor_id + ", country_id=" + country_id + ", harbor_name=" + harbor_name + ", contract_Dates=" + contract_dates + ", contract_Duration=" + contract_duration + '}';
+        return "Harbor{" + "harbor_id=" + harbor_id + ", country=" + country + ", harbor_name=" + harbor_name + ", contract_dates=" + contract_dates + ", contract_duration=" + contract_duration + '}';
     }
 
 }

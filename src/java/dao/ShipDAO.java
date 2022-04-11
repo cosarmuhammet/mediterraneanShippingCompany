@@ -10,12 +10,12 @@ import util.DBConnection;
 
 public class ShipDAO extends DBConnection {
 
-    private Connection db;
+  
 
     public void ShipDAO(Ship c) {
         try {
 
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "insert into ship (ship_id,employee_id, ship_name, dimension ,production_date,capacity) values('" + c.getShip_id() + "','" + c.getEmployee_id() + "', '" + c.getShip_name() + "', '" + c.getDimension() + "', "
                     + "'" + c.getProduction_date() + "' ,'" + c.getCapacity() + "')";
@@ -29,7 +29,7 @@ public class ShipDAO extends DBConnection {
 
     public void update(Ship c) {
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "update ship set employee_id='" + c.getEmployee_id() + "',ship_name='" + c.getShip_name() + "' ,dimension='" + c.getDimension() + "',production_date='" + c.getProduction_date() + "', capacity='" + c.getCapacity() + "'where ship_id='" + c.getShip_id() + "' ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
@@ -42,7 +42,7 @@ public class ShipDAO extends DBConnection {
     public void delete(Ship c) {
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
             String query2 = "delete from ship where ship_id='" + c.getShip_id() + "'";
             int r = st.executeUpdate(query2);
 
@@ -56,7 +56,7 @@ public class ShipDAO extends DBConnection {
         List<Ship> categoryList = new ArrayList<>();
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "select * from ship order by ship_id";
 
@@ -73,15 +73,5 @@ public class ShipDAO extends DBConnection {
         return categoryList;
     }
 
-    public Connection getDb() {
-        if (this.db == null) {
-            this.db = this.connect();
-        }
-        return db;
-    }
-
-    public void setDb(Connection db) {
-        this.db = db;
-    }
 
 }

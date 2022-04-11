@@ -15,7 +15,7 @@ public class CountryDAO extends DBConnection {
     public void CountryDAO(Country c) {
         try {
 
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "insert into country (country_id, country_name) values('" + c.getCountry_id() + "', '" + c.getCountry_name() + "')";
 
@@ -26,10 +26,34 @@ public class CountryDAO extends DBConnection {
         }
     }
 
+    public Country findbyID(String id) {
+       
+        Country c = null;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from country where country_id='" + id + "' ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+
+                c = new Country(rs.getString("country_id"), rs.getString("country_name"));
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return c;
+
+    }
+
     public void update(Country c) {
         try {
 
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "update country set country_name='" + c.getCountry_name() + "' where country_id='" + c.getCountry_id() + "'   ";
 
@@ -43,7 +67,7 @@ public class CountryDAO extends DBConnection {
     public void delete(Country c) {
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
             String query2 = "delete from country where country_id='" + c.getCountry_id() + "'";
             int r = st.executeUpdate(query2);
 
@@ -57,7 +81,7 @@ public class CountryDAO extends DBConnection {
         List<Country> categoryList = new ArrayList<>();
 
         try {
-            Statement st = this.getDb().createStatement();
+            Statement st = this.getConnection().createStatement();
 
             String query = "select * from country order by country_id";
 
@@ -72,17 +96,6 @@ public class CountryDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
         return categoryList;
-    }
-
-    public Connection getDb() {
-        if (this.db == null) {
-            this.db = this.connect();
-        }
-        return db;
-    }
-
-    public void setDb(Connection db) {
-        this.db = db;
     }
 
 }
