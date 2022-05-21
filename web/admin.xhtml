@@ -4,12 +4,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>TODO write content</div>
+       
+           <h:form id="form">
+
+                Username:<h:inputText id="uname" value="#{testBean.username}" required="true" requiredMessage="Bu alan zorunludur !" /><br/>
+                <h:messages for="uname" style="color: red;font-size:10pt "/><br/>
+
+                Password : <h:inputText id="pass" validator="#{testBean.validatePassword}" value="#{testBean.password}"/><br/>
+                <h:messages for="pass" style="color: red;font-size:10pt "/><br/>
+
+                <h:commandButton action="#{testBean.register}" value="REGISTER" />
+
+            </h:form>
+        
     </body>
 </html>

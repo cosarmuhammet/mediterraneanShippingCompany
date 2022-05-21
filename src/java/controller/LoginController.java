@@ -29,7 +29,7 @@ public class LoginController implements Serializable{
     
     public void login(){
         
-        if ( user.getUsername().equals("test") && user.getPassword().equals("123")  ) {
+        if ( user.getUsername().equals("admin") && user.getPassword().equals("12345678")  ) {
             
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("validUser",user );
             
