@@ -21,35 +21,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
         <div class="container mt-5" >
             <h:form>
-                <div class="mb-3">
-                    <label  class="form-label">Ship id:</label>
-                    <h:inputText value="#{shipBean.entity.ship_id}" />
-                    <br></br>
 
-                    <label  class="form-label">Employee id:</label>
-                    <h:selectOneMenu value="#{shipBean.entity.employee}" converter="employeeShip" >
-                        <f:selectItems value="#{employeeBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.employe_name}"/>
 
-                    </h:selectOneMenu>
-                    <br></br>
-                    <label  class="form-label">Ship Name:</label>
-                    <h:inputText value="#{shipBean.entity.ship_name}" />
-                    <br></br>
-                    <label  class="form-label">Dimension:</label>
-                    <h:inputText value="#{shipBean.entity.dimension}" />
-                    <br></br>
-                    <label  class="form-label">Production date:</label>
-                    <h:inputText value="#{shipBean.entity.production_date}" />
-                    <br></br>
-                    <label  class="form-label">Capacity</label>
-                    <h:inputText value="#{shipBean.entity.capacity}" />
-                    <br></br>
-                </div>
-
-                <div class="mb-3">
-                    <h:commandButton rendered="#{shipBean.entity.ship_id==null}" action="#{shipBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{shipBean.entity.ship_id!=null}" action="#{shipBean.update}" value="Update" />  
-                </div>
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{shipBean.list}" var="c" >
 
@@ -81,11 +54,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">Capacity</f:facet>
                                 #{c.capacity}
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{shipBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{shipBean.setEntity(c)}" value="Update" />
-                        </h:column>
+
 
                     </h:dataTable>
                 </div>

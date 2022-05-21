@@ -22,29 +22,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <div class="container mt-5" >
             <h:form>
                 <div class="mb-3">
-                    <label  class="form-label">Harbor ID:</label>
-                    <h:inputText value="#{harborBean.entity.harbor_id}" />
-                    <br></br>
-                    <label  class="form-label">Country İd:</label>
-                    <h:selectOneMenu value="#{harborBean.entity.country}" converter="countryHarbour" >
-                        <f:selectItems value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/>
-
-                    </h:selectOneMenu><br/>
-                    <label  class="form-label">Harbor Name:</label>
-                    <h:inputText value="#{harborBean.entity.harbor_name}" />
-                    <br></br>
-                    <label  class="form-label">Contract_Dates:</label>
-                    <h:inputText value="#{harborBean.entity.contract_dates}" />
-                    <br></br>
-                    <label  class="form-label">Contract_Duration:</label>
-                    <h:inputText value="#{harborBean.entity.contract_duration}" />
-                    <br></br>
-                </div>
-                <div class="mb-3">
-                    <h:commandButton rendered="#{harborBean.entity.harbor_id ==null}"  action="#{harborBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.update()}" value="Update"/>
-                </div>
-                <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{harborBean.list}" var="c" >
 
                         <h:column>
@@ -71,11 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                 #{c.contract_duration}
                         </h:column>
 
-                        <h:column>
-                            <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{harborBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{harborBean.setEntity(c)}" value="Update" />
-                        </h:column>
+
 
                     </h:dataTable>
 

@@ -9,29 +9,30 @@
     </h:head>
     <h:body>
 
+        <div class="container mt-5" >
+            <h:form>
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
 
-        <h:form>
-            <h:commandButton action="panel/country" value="Country"/>
-            <h:commandButton action="panel/brand" value="Brand"/>
-            <h:commandButton action="panel/company" value="Company"/>
-            <h:commandButton action="panel/employee" value="Employee"/>
-            <h:commandButton action="panel/harbor" value="Harbor"/>
-             <h:commandButton action="panel/ship" value="Ship"/>
+                        <h:form>
 
-        </h:form>
+                            <h:commandButton styleClass="btn btn-light" action="panel_kullanici/country" value="Country"/>
+                            <h:commandButton styleClass="btn btn-light" action="panel_kullanici/company" value="Company"/>
+                            <h:commandButton styleClass="btn btn-light" action="panel_kullanici/brand" value="Brand"/>
+                            
+                            <h:commandButton styleClass="btn btn-light" action="panel_kullanici/harbor" value="Harbour"/>
+                            <h:commandButton styleClass="btn btn-light" action="panel_kullanici/ship" value="Ship"/>
+                           
 
-
-
-        <hr />
-
-
-
+                        </h:form>
+                    </div>
+                </nav>
+            </h:form>
 
 
-  
-        
+        </div>
 
-       
+
+
     </h:body>
 </html>
-

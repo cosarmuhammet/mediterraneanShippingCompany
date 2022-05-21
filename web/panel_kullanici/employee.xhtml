@@ -21,39 +21,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <div class="container mt-5" >
             <h:form>
                 <div class="mb-3">
-                    <label  class="form-label">Employee ID:</label>
-                    <h:inputText value="#{employeeBean.entity.employee_id}" />
-                    <br></br>
-                    <label  class="form-label">Employee Name:</label>
-                    <h:inputText value="#{employeeBean.entity.employe_name}" />
-                    <br></br>
-                    <label  class="form-label">Date of Birth:</label>
-                    <h:inputText value="#{employeeBean.entity.date_of_birth}" />
-                    <br></br>
-                    <label  class="form-label">Address:</label>
-                    <h:inputText value="#{employeeBean.entity.address}" />
-                    <br></br>
-                    <label  class="form-label">Jop Position:</label>
-                    <h:inputText value="#{employeeBean.entity.jop_position}" />
-                    <br></br>
-                    <label  class="form-label">Phone Number:</label>
-                    <h:inputText value="#{employeeBean.entity.phone_number}" />
-                    <br></br>
-                    <label  class="form-label">Travel Time:</label>
-                    <h:inputText value="#{employeeBean.entity.travel_time}" />
-                    <br></br>
-                    <label  class="form-label">Contract Duration::</label>
-                    <h:inputText value="#{employeeBean.entity.contract_duration}" />
-                    <br></br>
-                    <label  class="form-label">Wage</label>
-                    <h:inputText value="#{employeeBean.entity.wage}" />
-                    <br></br>
-                </div>
-                <div class="mb-3">
-                    <h:commandButton rendered="#{employeeBean.entity.employee_id ==null}" action="#{employeeBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{employeeBean.entity.employee_id !=null}" action="#{employeeBean.update()}" value="Update"/>
-                </div>
-                <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{employeeBean.list}" var="c" >
 
                         <h:column>
@@ -93,11 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">wage</f:facet>
                                 #{c.wage}
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{employeeBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{employeeBean.setEntity(c)}" value="Update" />
-                        </h:column>
+
 
 
                     </h:dataTable>
