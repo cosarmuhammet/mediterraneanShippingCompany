@@ -1,9 +1,11 @@
 package entity;
 
+import java.util.List;
+
 public class Brand {
 
     private String brand_id;
-    private Country country;
+    private List<Country> countryies;
     private String brand_name;
     private String contract_Dates;
     private String contract_Duration;
@@ -11,12 +13,13 @@ public class Brand {
     public Brand() {
     }
 
-    public Brand(String brand_id, Country country, String brand_name, String contract_Dates, String contract_Duration) {
+    public Brand(String brand_id, List<Country> categories, String brand_name, String contract_Dates, String contract_Duration) {
         this.brand_id = brand_id;
-        this.country = country;
+        this.countryies = categories;
         this.brand_name = brand_name;
         this.contract_Dates = contract_Dates;
         this.contract_Duration = contract_Duration;
+
     }
 
     public String getBrand_id() {
@@ -27,12 +30,12 @@ public class Brand {
         this.brand_id = brand_id;
     }
 
-    public Country getCountry() {
-        return country;
+    public List<Country> getCountryies() {
+        return countryies;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setCountryies(List<Country> countryies) {
+        this.countryies = countryies;
     }
 
     public String getBrand_name() {
@@ -58,7 +61,5 @@ public class Brand {
     public void setContract_Duration(String contract_Duration) {
         this.contract_Duration = contract_Duration;
     }
-
- 
 
 }

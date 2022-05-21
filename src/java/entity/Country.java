@@ -2,11 +2,12 @@ package entity;
 
 import java.util.Objects;
 
-public class Country {   
+public class Country {
+
     private String country_id;
     private String country_name;
-    
-    public Country(){
+
+    public Country() {
     }
 
     public Country(String country_id, String country_name) {
@@ -52,9 +53,9 @@ public class Country {
         return Objects.equals(this.country_id, other.country_id);
     }
 
-   
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return country_name;
+    }
+
 }

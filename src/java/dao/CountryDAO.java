@@ -39,7 +39,7 @@ public class CountryDAO extends DBConnection {
             while (rs.next()) {
 
                 c = new Country(rs.getString("country_id"), rs.getString("country_name"));
-
+                
             }
 
         } catch (Exception ex) {

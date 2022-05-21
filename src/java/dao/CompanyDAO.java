@@ -1,4 +1,4 @@
- package dao;
+package dao;
 
 import java.util.List;
 import util.DBConnection;
@@ -10,14 +10,12 @@ import entity.Company;
 
 public class CompanyDAO extends DBConnection {
 
-   
-
     public void CompanyDAO(Company c) {
         try {
 
             Statement st = this.getConnection().createStatement();
 
-            String query = "insert into company (company_id,ship_id,country_id, company_name,company_type,founder,year_of_foundation) values('" + c.getCompany_id()+ "', '"+c.getShip_id()+"','"+c.getCountry_id()+"', '" + c.getCompany_name()+ "', '" + c.getCompany_type() + "', '" + c.getFounder() + "', '" + c.getYear_of_foundation() + "')";
+            String query = "insert into company (company_id,ship_id,country_id, company_name,company_type,founder,year_of_foundation) values('" + c.getCompany_id() + "', '" + c.getShip_id() + "','" + c.getCountry_id() + "', '" + c.getCompany_name() + "', '" + c.getCompany_type() + "', '" + c.getFounder() + "', '" + c.getYear_of_foundation() + "')";
 
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
@@ -25,11 +23,12 @@ public class CompanyDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
     }
-      public void update(Company c) {
+
+    public void update(Company c) {
         try {
             Statement st = this.getConnection().createStatement();
 
-            String query = "update company set ship_id='" + c.getShip_id()+ "',country_id='"+c.getCountry_id()+"' ,company_name='" + c.getCompany_name()+ "',company_type='" + c.getCompany_type()+ "', founder='" + c.getFounder()+ "', year_of_foundation='"+c.getYear_of_foundation()+"'   where company_id='" + c.getCompany_id()+ "' ";
+            String query = "update company set ship_id='" + c.getShip_id() + "',country_id='" + c.getCountry_id() + "' ,company_name='" + c.getCompany_name() + "',company_type='" + c.getCompany_type() + "', founder='" + c.getFounder() + "', year_of_foundation='" + c.getYear_of_foundation() + "'   where company_id='" + c.getCompany_id() + "' ";
             int r = st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -62,7 +61,7 @@ public class CompanyDAO extends DBConnection {
 
             while (rs.next()) {
 
-                companyList.add(new Company(rs.getString("company_id"),rs.getString("ship_id"),rs.getString("country_id") ,rs.getString("company_name"), rs.getString("company_type"), rs.getString("founder"), rs.getString("year_of_foundation")));
+                companyList.add(new Company(rs.getString("company_id"), rs.getString("ship_id"), rs.getString("country_id"), rs.getString("company_name"), rs.getString("company_type"), rs.getString("founder"), rs.getString("year_of_foundation")));
             }
 
         } catch (Exception ex) {
@@ -70,6 +69,5 @@ public class CompanyDAO extends DBConnection {
         }
         return companyList;
     }
-
 
 }

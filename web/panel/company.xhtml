@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:commandButton action="/index" value="Home"/>
+        </h:form>
+        <hr/>
+
+
+        <h:form>
+            Company ID: <h:inputText value="#{companyBean.entity.company_id}" />
+            <br></br>
+            Ship ID: <h:inputText value="#{companyBean.entity.ship_id}" />
+            <br></br>
+            Country ID: <h:inputText value="#{companyBean.entity.country_id}" />
+            <br></br>
+            Company Name: <h:inputText value="#{companyBean.entity.company_name}" />
+            <br></br>
+            Company type: <h:inputText value="#{companyBean.entity.company_type}" />
+            <br></br>
+            Company Founder <h:inputText value="#{companyBean.entity.founder}" />
+            <br></br>
+            Year of Foundation: <h:inputText value="#{companyBean.entity.year_of_foundation}" />
+            <br></br>
+
+            <h:commandButton rendered="#{companyBean.entity.company_id==null}"  action="#{companyBean.create}" value="Save" />  
+            <h:commandButton rendered="#{companyBean.entity.company_id!=null}"  action="#{companyBean.update}" value="Update" />  
+
+            <h:dataTable styleClass="table table-striped" value="#{companyBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">Company ID</f:facet>
+                        #{c.company_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ship ID</f:facet>
+                        #{c.ship_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Country ID</f:facet>
+                        #{c.country_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company NAME</f:facet>
+                        #{c.company_name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company ID</f:facet>
+                        #{c.company_type}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Company NAME</f:facet>
+                        #{c.founder}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Year of Foundation</f:facet>
+                        #{c.year_of_foundation}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Aplication</f:facet>
+                    <h:commandButton action="#{companyBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{companyBean.setEntity(c)}" value="Update" />
+                </h:column>
+
+
+            </h:dataTable>
+            <hr />
+        </h:form>
+
+
+
+    </body>
+</html>

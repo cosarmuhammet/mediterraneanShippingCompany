@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:commandButton action="/index" value="Home"/>
+        </h:form>
+        <hr/>
+
+
+        <h:form>
+
+            Harbor ID: <h:inputText value="#{harborBean.entity.harbor_id}" />
+            <br></br>
+            Country ID: 
+            <h:selectOneMenu value="#{harborBean.entity.country}" converter="countryHarbour" >
+                <f:selectItems value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/>
+
+            </h:selectOneMenu><br/>
+            Harbor Name: <h:inputText value="#{harborBean.entity.harbor_name}" />
+            <br></br>
+            Contract_Dates: <h:inputText value="#{harborBean.entity.contract_dates}" />
+            <br></br>
+            Contract_Duration: <h:inputText value="#{harborBean.entity.contract_duration}" />
+            <br></br>
+            <h:commandButton rendered="#{harborBean.entity.harbor_id ==null}"  action="#{harborBean.create}" value="Save" />  
+            <h:commandButton rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.update()}" value="Update"/>
+
+
+            <h:dataTable styleClass="table table-striped" value="#{harborBean.list}" var="c" >
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{c.harbor_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Country ID</f:facet>
+                        #{c.country.country_name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                        #{c.harbor_name}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DATES</f:facet>
+                        #{c.contract_dates}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">CONTRACT_DURATION</f:facet>
+                        #{c.contract_duration}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Aplication</f:facet>
+                    <h:commandButton action="#{harborBean.delete(c)}" value="Delete" />
+                    <h:commandButton action="#{harborBean.setEntity(c)}" value="Update" />
+                </h:column>
+
+            </h:dataTable>
+
+            <hr />
+        </h:form>
+    </body>
+</html>
