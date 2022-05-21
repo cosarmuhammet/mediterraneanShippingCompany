@@ -27,16 +27,17 @@ public class LoginController implements Serializable{
         
     }
     
-    public void login(){
+    public String login(){
         
         if ( user.getUsername().equals("admin") && user.getPassword().equals("12345678")  ) {
-            
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("validUser",user );
+            System.out.println("dsjkfhkjdsh");
+            return "adminHome";
+            //FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("validUser",user );
             
         }else{
             
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Username or password is Wrong !"));
-                    
+               return null;     
         }
     }
 

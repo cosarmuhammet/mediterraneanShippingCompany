@@ -27,7 +27,7 @@ public class CountryDAO extends DBConnection {
     }
 
     public Country findbyID(String id) {
-       
+
         Country c = null;
         try {
             Statement st = this.getConnection().createStatement();
@@ -39,13 +39,13 @@ public class CountryDAO extends DBConnection {
             while (rs.next()) {
 
                 c = new Country(rs.getString("country_id"), rs.getString("country_name"));
-                
+
             }
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        
+
         return c;
 
     }
@@ -96,6 +96,49 @@ public class CountryDAO extends DBConnection {
             System.out.println(ex.getMessage());
         }
         return categoryList;
+    }
+
+    public List<Country> findAll(int page, int pageSize) {
+
+        List<Country> categoryList = new ArrayList<>();
+        int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from country order by country_id limit " + pageSize + " offset " + start+ "  ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+
+                categoryList.add(new Country(rs.getString("country_id"), rs.getString("country_name")));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return categoryList;
+    }
+
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(country_id) as country_count from country  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
     }
 
 }

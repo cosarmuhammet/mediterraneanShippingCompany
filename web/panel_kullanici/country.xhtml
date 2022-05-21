@@ -21,9 +21,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
         <div class="container mt-5" >
             <h:form>
-                
-                
+
+
                 <div class="mb-3">
+                    Page #{countryBean.page} of #{countryBean.pageCount} <br/>
+                    <div class="btn-group">
+                        
+                        <h:commandButton action="#{countryBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
+                        <h:commandButton action="#{countryBean.next}" value="Next" styleClass="btn btn-dark"/>
+
+                    </div>
                     <h:dataTable styleClass="table table-striped" value="#{countryBean.list}" var="c" >
                         <h:column>
                             <f:facet name="header">ID</f:facet>
@@ -34,7 +41,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                 #{c.country_name}
                         </h:column>
 
-                       
+
                     </h:dataTable>
                 </div>
 

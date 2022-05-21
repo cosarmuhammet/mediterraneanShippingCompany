@@ -43,6 +43,8 @@ public class TestBean implements Serializable {
 
     public void register() {
         System.out.println("-----------------------REGISTER--------------");
+        
+        
     }
 
     public String getUsername() {

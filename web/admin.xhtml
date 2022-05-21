@@ -15,13 +15,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
        
            <h:form id="form">
 
-                Username:<h:inputText id="uname" value="#{testBean.username}" required="true" requiredMessage="Bu alan zorunludur !" /><br/>
+                Username:<h:inputText id="uname" value="#{lc.user.username}" required="true" requiredMessage="Bu alan zorunludur !" /><br/>
                 <h:messages for="uname" style="color: red;font-size:10pt "/><br/>
 
-                Password : <h:inputText id="pass" validator="#{testBean.validatePassword}" value="#{testBean.password}"/><br/>
+                Password : <h:inputText id="pass" validator="#{testBean.validatePassword}" value="#{lc.user.password}"/><br/>
                 <h:messages for="pass" style="color: red;font-size:10pt "/><br/>
 
-                <h:commandButton action="#{testBean.register}" value="REGISTER" />
+                <h:commandButton action="#{lc.login}" value="REGISTER" />
 
             </h:form>
         
