@@ -84,5 +84,52 @@ public class HarborDAO extends DBConnection {
     public void setCountryDAO(CountryDAO countryDAO) {
         this.countryDAO = countryDAO;
     }
+    
+    
+    
+    public List<Harbor> getCategoryList2(int page, int pageSize) {
+
+        List<Harbor> categoryList = new ArrayList<>();
+int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from harbor order by harbor_id asc limit " + pageSize + " offset " + start + " ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                Country c = this.getCountryDAO().findbyID(rs.getString("country_id"));
+
+                categoryList.add(new Harbor(rs.getString("harbor_id"), c, rs.getString("harbor_name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));///BURDAKİ İSİSMLER PGADMİNDEKİ  TABLO SÜTUNLARIYLA AYNI OLMAK ZORUNDA
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return categoryList;
+    }
+    
+ 
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(harbor_id) as country_count from harbor  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
+    }
 
 }

@@ -85,4 +85,47 @@ public class ShipDAO extends DBConnection {
         this.emloyedao = emloyedao;
     }
 
+    public List<Ship> getCategoryList2(int page, int pageSize) {
+
+        List<Ship> categoryList = new ArrayList<>();
+        int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from ship order by ship_id asc limit " + pageSize + " offset " + start + "";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                Employee c = this.getEmloyedao().findbyID("employee_id");
+                categoryList.add(new Ship(rs.getString("ship_id"), c, rs.getString("ship_name"), rs.getString("dimension"), rs.getString("production_date"), rs.getString("capacity")));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return categoryList;
+    }
+
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(ship_id) as country_count from ship  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
+    }
+
 }

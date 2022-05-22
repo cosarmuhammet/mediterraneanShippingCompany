@@ -24,7 +24,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
 
                 <div class="mb-3">
-                    <h:dataTable styleClass="table table-striped" value="#{shipBean.list}" var="c" >
+                    Page #{shipBean.page} of #{shipBean.pageCount} <br/>
+                    <div class="btn-group">
+
+                        <h:commandButton action="#{shipBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
+                        <h:commandButton action="#{shipBean.next}" value="Next" styleClass="btn btn-dark"/>
+
+                    </div>
+                    <h:dataTable styleClass="table table-striped" value="#{shipBean.list2}" var="c" >
 
                         <h:column>
                             <f:facet name="header">Ship ID</f:facet>

@@ -89,4 +89,46 @@ public class EmployeeDAO extends DBConnection {
         return EmployeeList;
     }
 
+    public List<Employee> getCategoryList2(int page, int pageSize) {
+
+        List<Employee> EmployeeList = new ArrayList<>();
+        int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from employee order by employee_id asc limit " + pageSize + " offset " + start + " ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+
+                EmployeeList.add(new Employee(rs.getString("employee_id"), rs.getString("employee_name"), rs.getString("date_of_birth"), rs.getString("address"), rs.getString("jop_position"), rs.getString("phone_number"), rs.getString("travel_time"), rs.getString("contract_duration"), rs.getString("wage")));//Değişkenler Veri tablosundaki sütun iismlerle aynı olacak
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return EmployeeList;
+    }
+
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(employee_id) as country_count from employee  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
+    }
 }

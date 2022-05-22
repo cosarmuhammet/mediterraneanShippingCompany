@@ -98,14 +98,14 @@ public class CountryDAO extends DBConnection {
         return categoryList;
     }
 
-    public List<Country> findAll(int page, int pageSize) {
+    public List<Country> getCategoryList2(int page, int pageSize) {
 
         List<Country> categoryList = new ArrayList<>();
         int start = (page - 1) * pageSize;
         try {
             Statement st = this.getConnection().createStatement();
 
-            String query = "select * from country order by country_id limit " + pageSize + " offset " + start+ "  ";
+            String query = "select * from country order by country.country_id asc limit " + pageSize + " offset " + start + "   ";
 
             ResultSet rs = st.executeQuery(query);
 

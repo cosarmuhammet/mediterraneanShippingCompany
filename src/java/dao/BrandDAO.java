@@ -125,4 +125,49 @@ public class BrandDAO extends DBConnection {
         this.countryDao = countryDao;
     }
 
+
+
+    public List<Brand> getCategoryList2(int page, int pageSize) {
+
+        List<Brand> categoryList = new ArrayList<>();
+        int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from brand order by brand_id asc limit " + pageSize + " offset " + start + " ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+
+                categoryList.add(new Brand(rs.getString("brand_id"), this.getBrandCountryies(rs.getString("brand_id")), rs.getString("brand_name"), rs.getString("contract_Dates"), rs.getString("contract_Duration")));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return categoryList;
+    }
+
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(brand_id) as country_count from brand  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
+    }
+
 }

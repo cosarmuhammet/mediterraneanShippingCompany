@@ -21,10 +21,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
         <div class="container mt-5" >
             <h:form>
-               
+                Page #{companyBean.page} of #{companyBean.pageCount} <br/>
+                    <div class="btn-group">
+                        
+                        <h:commandButton action="#{companyBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
+                        <h:commandButton action="#{companyBean.next}" value="Next" styleClass="btn btn-dark"/>
+
+                    </div>
              
 
-                <h:dataTable styleClass="table table-striped" value="#{companyBean.list}" var="c" >
+                <h:dataTable styleClass="table table-striped" value="#{companyBean.list2}" var="c" >
 
                     <h:column>
                         <f:facet name="header">Company ID</f:facet>

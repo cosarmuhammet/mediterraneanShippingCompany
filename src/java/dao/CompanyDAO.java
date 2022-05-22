@@ -70,4 +70,47 @@ public class CompanyDAO extends DBConnection {
         return companyList;
     }
 
+    public List<Company> getCategoryList2(int page, int pageSize) {
+
+        List<Company> companyList = new ArrayList<>();
+        int start = (page - 1) * pageSize;
+        try {
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select * from company order by company_id asc limit " + pageSize + " offset " + start + " ";
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+
+                companyList.add(new Company(rs.getString("company_id"), rs.getString("ship_id"), rs.getString("country_id"), rs.getString("company_name"), rs.getString("company_type"), rs.getString("founder"), rs.getString("year_of_foundation")));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return companyList;
+    }
+
+    public int count() {
+        int count = 0;
+
+        try {
+            //PreparedStatement pst= this.getConnection().prepareStatement("select count(country_id) as country_count from country");
+            Statement st = this.getConnection().createStatement();
+
+            String query = "select count(company_id) as country_count from company  ";
+
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            count = rs.getInt("country_count");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return count;
+
+    }
+
 }

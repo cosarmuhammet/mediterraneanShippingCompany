@@ -6,39 +6,49 @@
     <h:head>
         <title>Mediterranean Shipping Company</title>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <style>
+            body{
+                background-image: url(MSC.jpg);
+
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height: 1000px;
+            }
+        </style>
     </h:head>
     <h:body>
+        <div class="fixed-top">
 
-        <br/>
-        <div class="container mt-6" >
-            <h1>Mediterranean Shipping Company</h1>
+            <div class="container mt-6" >
+                <h1>Mediterranean Shipping Company</h1>
+            </div>
+
+
+            <div class="container mt-5" >
+                <h:form>
+
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <div class="container-fluid">
+                            <h:commandButton styleClass="btn btn-outline-info" action="panel_kullanici/country" value="Country"/>
+                            <h:commandButton styleClass="btn btn-outline-info" action="panel_kullanici/company" value="Company"/>
+                            <h:commandButton styleClass="btn btn-outline-info" action="panel_kullanici/brand" value="Brand"/>
+                            <h:commandButton styleClass="btn btn-outline-info" action="panel_kullanici/harbor" value="Harbour"/>
+                            <h:commandButton styleClass="btn btn-outline-info" action="panel_kullanici/ship" value="Ship"/>
+
+                        </div>
+                    </nav>
+
+                </h:form>
+
+
+
+
+
+
+            </div>
         </div>
-        <br/>
-
-        <div class="container mt-5" >
-            <h:form>
-                <nav class="navbar navbar-expand-lg bg-light">
-                    <div class="container-fluid">
 
 
-
-                        <h:commandButton styleClass="btn btn-light" action="panel_kullanici/country" value="Country"/>
-                        <h:commandButton styleClass="btn btn-light" action="panel_kullanici/company" value="Company"/>
-                        <h:commandButton styleClass="btn btn-light" action="panel_kullanici/brand" value="Brand"/>
-
-                        <h:commandButton styleClass="btn btn-light" action="panel_kullanici/harbor" value="Harbour"/>
-                        <h:commandButton styleClass="btn btn-light" action="panel_kullanici/ship" value="Ship"/>
-
-                    </div>
-                </nav>
-            </h:form>
-
-
-
-            <br/>
-
-
-        </div>
 
 
 

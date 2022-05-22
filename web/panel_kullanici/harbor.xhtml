@@ -22,7 +22,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <div class="container mt-5" >
             <h:form>
                 <div class="mb-3">
-                    <h:dataTable styleClass="table table-striped" value="#{harborBean.list}" var="c" >
+                     Page #{harborBean.page} of #{harborBean.pageCount} <br/>
+                    <div class="btn-group">
+                        
+                        <h:commandButton action="#{harborBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
+                        <h:commandButton action="#{harborBean.next}" value="Next" styleClass="btn btn-dark"/>
+
+                    </div>
+                    <h:dataTable styleClass="table table-striped" value="#{harborBean.list2}" var="c" >
 
                         <h:column>
                             <f:facet name="header">ID</f:facet>
