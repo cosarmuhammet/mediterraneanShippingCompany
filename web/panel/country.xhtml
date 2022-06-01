@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <hr/>
 
         <div class="container mt-5" >
-            <h:form>
+            <h:form id="country-form">
                 <div class="mb-3">
                     <label  class="form-label">Country ID:</label>
                     <h:inputText value="#{countryBean.entity.country_id}" />
@@ -41,13 +41,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         </h:column>
                         <h:column>
                             <f:facet name="header">NAME</f:facet>
-                                #{c.country_name}
+                            <h:commandLink action="#{countryBean.setEntity(c)}" value="#{c.country_name}">
+                                <f:ajax execute="@this" render="country-form"/>
+                            </h:commandLink>
+
                         </h:column>
 
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
                             <h:commandButton styleClass="btn btn-danger" action="#{countryBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{countryBean.setEntity(c)}" value="Update" />
+                           
                         </h:column>
                     </h:dataTable>
                 </div>

@@ -20,37 +20,33 @@
         </div>
         <hr/>
         <div class="container mt-5" >
-            <h:form>
+            <h:form id="brand-form">
+                <div class="mb-3">
+                    <label  class="form-label">Brand id:</label>
+                    <h:inputText  value="#{brandBean.entity.brand_id}" />
+                    <br/>
 
+                    <label  class="form-label">Country id:</label>
+                    <h:selectManyMenu  value="#{brandBean.entity.countryies}" converter="countryBrand">
+                        <f:selectItems  value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/><!-- comment --> 
+                    </h:selectManyMenu>
 
+                    <br/>
+                    <label  class="form-label">Brand Name:</label>
+                    <h:inputText value="#{brandBean.entity.brand_name}" />
+                    <br/>
+                    <label  class="form-label">Contract_Dates:</label>
+                    <h:inputText value="#{brandBean.entity.contract_Dates}" />
+                    <br/>
+                    <label  class="form-label">Contract_Duration:</label>
+                    <h:inputText value="#{brandBean.entity.contract_Duration}" />
 
-                <h:form>
-                    <div class="mb-3">
-                        <label  class="form-label">Brand id:</label>
-                        <h:inputText  value="#{brandBean.entity.brand_id}" />
-                        <br/>
+                </div>
+                <div class="mb-3">
+                    <h:commandButton rendered="#{brandBean.entity.brand_id==null}" action="#{brandBean.create}" value="Save" />  
+                    <h:commandButton rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.update}" value="Update" />  
+                </div>
 
-                        <label  class="form-label">Country id:</label>
-                        <h:selectManyMenu  value="#{brandBean.entity.countryies}" converter="countryBrand">
-                            <f:selectItems  value="#{countryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.country_name}"/><!-- comment --> 
-                        </h:selectManyMenu>
-
-                        <br/>
-                        <label  class="form-label">Brand Name:</label>
-                        <h:inputText value="#{brandBean.entity.brand_name}" />
-                        <br/>
-                        <label  class="form-label">Contract_Dates:</label>
-                        <h:inputText value="#{brandBean.entity.contract_Dates}" />
-                        <br/>
-                        <label  class="form-label">Contract_Duration:</label>
-                        <h:inputText value="#{brandBean.entity.contract_Duration}" />
-
-                    </div>
-                    <div class="mb-3">
-                        <h:commandButton rendered="#{brandBean.entity.brand_id==null}" action="#{brandBean.create}" value="Save" />  
-                        <h:commandButton rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.update}" value="Update" />  
-                    </div>
-                </h:form>
 
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{brandBean.list}" var="c" >
@@ -70,7 +66,10 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">NAME</f:facet>
-                                #{c.brand_name}
+                            <h:commandLink action="#{brandBean.setEntity(c)}" value=" #{c.brand_name}">
+                                <f:ajax execute="@this" render="brand-form"/>
+                            </h:commandLink>
+
                         </h:column>
 
 
@@ -87,7 +86,7 @@
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
                             <h:commandButton styleClass="btn btn-danger" action="#{brandBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{brandBean.setEntity(c)}" value="Update" />
+
                         </h:column>
 
                     </h:dataTable>

@@ -19,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         </div>
         <hr/>
         <div class="container mt-5" >
-            <h:form>
+            <h:form id="employe-form">
                 <div class="mb-3">
                     <label  class="form-label">Employee ID:</label>
                     <h:inputText value="#{employeeBean.entity.employee_id}" />
@@ -62,7 +62,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         </h:column>
                         <h:column>
                             <f:facet name="header"> Name</f:facet>
-                                #{c.employe_name}
+                            <h:commandLink action="#{employeeBean.setEntity(c)}" value="#{c.employe_name}">
+                                <f:ajax execute="@this" render="employe-form"/>
+                            </h:commandLink>
+
                         </h:column>
 
                         <h:column>
@@ -96,7 +99,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
                             <h:commandButton styleClass="btn btn-danger" action="#{employeeBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{employeeBean.setEntity(c)}" value="Update" />
+                            
                         </h:column>
 
 

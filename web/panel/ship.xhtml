@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <hr/>
 
         <div class="container mt-5" >
-            <h:form>
+            <h:form id="ship-form">
                 <div class="mb-3">
                     <label  class="form-label">Ship id:</label>
                     <h:inputText value="#{shipBean.entity.ship_id}" />
@@ -63,7 +63,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         </h:column>
                         <h:column>
                             <f:facet name="header">NAME</f:facet>
-                                #{c.ship_name}
+                            <h:commandLink action="#{shipBean.setEntity(c)}" value="#{c.ship_name}">
+                                <f:ajax execute="@this" render="ship-form"/>
+                            </h:commandLink>
+
                         </h:column>
 
 
@@ -84,7 +87,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
                             <h:commandButton styleClass="btn btn-danger" action="#{shipBean.delete(c)}" value="Delete" />
-                            <h:commandButton styleClass="btn btn-info" action="#{shipBean.setEntity(c)}" value="Update" />
+                            
                         </h:column>
 
                     </h:dataTable>

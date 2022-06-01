@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <hr/>
 
         <div class="container mt-5" >
-            <h:form>
+            <h:form id="company-form">
                 <div class="mb-3">
                     <label  class="form-label">Company id:</label>
                     <h:inputText value="#{companyBean.entity.company_id}" />
@@ -31,17 +31,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <label  class="form-label">Country id:</label>
                     <h:inputText value="#{companyBean.entity.country_id}" />
                     <br></br>
-                     <label  class="form-label">Company Name</label>
-                     <h:inputText value="#{companyBean.entity.company_name}" />
+                    <label  class="form-label">Company Name</label>
+                    <h:inputText value="#{companyBean.entity.company_name}" />
                     <br></br>
                     <label  class="form-label">Company type:</label>
-                     <h:inputText value="#{companyBean.entity.company_type}" />
+                    <h:inputText value="#{companyBean.entity.company_type}" />
                     <br></br>
                     <label  class="form-label">Company Founder:</label>
-                     <h:inputText value="#{companyBean.entity.founder}" />
+                    <h:inputText value="#{companyBean.entity.founder}" />
                     <br></br>
-                     <label  class="form-label">Year of Foundation:</label>
-                     <h:inputText value="#{companyBean.entity.year_of_foundation}" />
+                    <label  class="form-label">Year of Foundation:</label>
+                    <h:inputText value="#{companyBean.entity.year_of_foundation}" />
                     <br></br>
                 </div>
                 <h:commandButton rendered="#{companyBean.entity.company_id==null}"  action="#{companyBean.create}" value="Save" />  
@@ -63,7 +63,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     </h:column>
                     <h:column>
                         <f:facet name="header">Company NAME</f:facet>
-                            #{c.company_name}
+
+                        <h:commandLink action="#{companyBean.setEntity(c)}" value=" #{c.company_name}">
+                            <f:ajax execute="@this" render="company-form"/>
+                        </h:commandLink>
+
                     </h:column>
                     <h:column>
                         <f:facet name="header">Company ID</f:facet>
@@ -82,7 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <h:column>
                         <f:facet name="header">Aplication</f:facet>
                         <h:commandButton styleClass="btn btn-danger" action="#{companyBean.delete(c)}" value="Delete" />
-                        <h:commandButton styleClass="btn btn-info" action="#{companyBean.setEntity(c)}" value="Update" />
+                        
                     </h:column>
 
 
