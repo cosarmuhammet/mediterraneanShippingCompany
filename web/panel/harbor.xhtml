@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <div class="container mt-5" >
             <h:form>
-                <h:commandButton styleClass="btn btn-light" action="/adminHome" value="Home"/>
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
             </h:form>
         </div>
         <hr/>
@@ -41,8 +41,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <br></br>
                 </div>
                 <div class="mb-3">
-                    <h:commandButton rendered="#{harborBean.entity.harbor_id ==null}"  action="#{harborBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.update()}" value="Update"/>
+                    <h:commandButton styleClass="btn btn-outline-success" rendered="#{harborBean.entity.harbor_id ==null}"  action="#{harborBean.create}" value="Save" />  
+                    <h:commandButton styleClass="btn btn-outline-info" rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.update}" value="Update"/>
+                    <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{harborBean.entity.harbor_id !=null}" action="#{harborBean.clearForm}" value="Clear Form"/>
                 </div>
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{harborBean.list}" var="c" >
@@ -76,8 +77,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{harborBean.delete(c)}" value="Delete" />
-                            
+                            <h:commandButton styleClass="btn btn-outline-danger" action="#{harborBean.delete(c)}" value="Delete" />
+
                         </h:column>
 
                     </h:dataTable>

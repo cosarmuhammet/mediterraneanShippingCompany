@@ -25,6 +25,9 @@ public class HarborBean implements Serializable {
     public HarborBean() {
 
     }
+    public void clearForm(){
+        this.entity = new Harbor();
+    }
 
     public void create() {
         this.getDao().HarborDAO(entity);

@@ -21,6 +21,9 @@ public class CompanyBean implements Serializable {
      private List<Company> list2;
     public CompanyBean() {
     }
+    public void clearForm(){
+        this.entity = new Company();
+    }
 
     public void create() {
         this.getDao().CompanyDAO(entity);//gelen Company nesnesini companyDAO sınıfındaki constructor methoduna yollar

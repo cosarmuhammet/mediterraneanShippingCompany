@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <div class="container mt-5" >
             <h:form>
-                <h:commandButton styleClass="btn btn-light" action="/adminHome" value="Home"/>
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
             </h:form>
         </div>
         <hr/>
@@ -44,8 +44,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <h:inputText value="#{companyBean.entity.year_of_foundation}" />
                     <br></br>
                 </div>
-                <h:commandButton rendered="#{companyBean.entity.company_id==null}"  action="#{companyBean.create}" value="Save" />  
-                <h:commandButton rendered="#{companyBean.entity.company_id!=null}"  action="#{companyBean.update}" value="Update" />  
+                <h:commandButton styleClass="btn btn-outline-success" rendered="#{companyBean.entity.company_id==null}"  action="#{companyBean.create}" value="Save" />  
+                <h:commandButton styleClass="btn btn-outline-info" rendered="#{companyBean.entity.company_id!=null}"  action="#{companyBean.update}" value="Update" /> 
+                <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{companyBean.entity.company_id!=null}"  action="#{companyBean.clearForm}" value="Clear Form" />  
 
                 <h:dataTable styleClass="table table-striped" value="#{companyBean.list}" var="c" >
 
@@ -85,8 +86,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
                     <h:column>
                         <f:facet name="header">Aplication</f:facet>
-                        <h:commandButton styleClass="btn btn-danger" action="#{companyBean.delete(c)}" value="Delete" />
-                        
+                        <h:commandButton styleClass="btn btn-outline-danger" action="#{companyBean.delete(c)}" value="Delete" />
+
                     </h:column>
 
 

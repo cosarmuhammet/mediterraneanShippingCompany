@@ -15,7 +15,7 @@
 
         <div class="container mt-5" >
             <h:form>
-                <h:commandButton styleClass="btn btn-light" action="/adminHome" value="Home"/>
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
             </h:form>
         </div>
         <hr/>
@@ -43,8 +43,9 @@
 
                 </div>
                 <div class="mb-3">
-                    <h:commandButton rendered="#{brandBean.entity.brand_id==null}" action="#{brandBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.update}" value="Update" />  
+                    <h:commandButton styleClass="btn btn-outline-success" rendered="#{brandBean.entity.brand_id==null}" action="#{brandBean.create}" value="Save" />  
+                    <h:commandButton styleClass="btn btn-outline-info" rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.update}" value="Update" />  
+                    <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.clearForm}" value="Clear Form" />
                 </div>
 
 
@@ -85,7 +86,7 @@
 
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{brandBean.delete(c)}" value="Delete" />
+                            <h:commandButton styleClass="btn btn-outline-danger" action="#{brandBean.delete(c)}" value="Delete" />
 
                         </h:column>
 

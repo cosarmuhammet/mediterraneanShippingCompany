@@ -24,6 +24,9 @@ public class ShipBean implements Serializable {
     public ShipBean() {
 
     }
+    public void clearForm(){
+        this.entity = new Ship();
+    }
 
     public void create() {
         this.getDao().ShipDAO(entity);

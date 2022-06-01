@@ -26,7 +26,9 @@ public class CountryBean implements Serializable {
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
     }
-
+    public void clearForm(){
+        this.entity = new Country();
+    }
     public void create() {
         this.getDao().CountryDAO(entity);
         this.entity = new Country();

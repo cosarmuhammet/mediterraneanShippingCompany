@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <div class="container mt-5" >
             <h:form>
-                <h:commandButton styleClass="btn btn-light" action="/adminHome" value="Home"/>
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
             </h:form>
         </div>
         <hr/>
@@ -50,8 +50,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <br></br>
                 </div>
                 <div class="mb-3">
-                    <h:commandButton rendered="#{employeeBean.entity.employee_id ==null}" action="#{employeeBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{employeeBean.entity.employee_id !=null}" action="#{employeeBean.update()}" value="Update"/>
+                    <h:commandButton styleClass="btn btn-outline-success" rendered="#{employeeBean.entity.employee_id ==null}" action="#{employeeBean.create}" value="Save" />  
+                    <h:commandButton styleClass="btn btn-outline-info" rendered="#{employeeBean.entity.employee_id !=null}" action="#{employeeBean.update}" value="Update"/>
+                    <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{employeeBean.entity.employee_id !=null}" action="#{employeeBean.clearForm}" value="Clear Form"/>
                 </div>
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{employeeBean.list}" var="c" >
@@ -98,7 +99,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         </h:column>
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{employeeBean.delete(c)}" value="Delete" />
+                            <h:commandButton styleClass="btn btn-outline-danger" action="#{employeeBean.delete(c)}" value="Delete" />
                             
                         </h:column>
 

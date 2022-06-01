@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <div class="container mt-5" >
             <h:form>
-                <h:commandButton styleClass="btn btn-light" action="/adminHome" value="Home"/>
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
             </h:form>
         </div>
         <hr/>
@@ -47,8 +47,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </div>
 
                 <div class="mb-3">
-                    <h:commandButton rendered="#{shipBean.entity.ship_id==null}" action="#{shipBean.create}" value="Save" />  
-                    <h:commandButton rendered="#{shipBean.entity.ship_id!=null}" action="#{shipBean.update}" value="Update" />  
+                    <h:commandButton styleClass="btn btn-outline-success" rendered="#{shipBean.entity.ship_id==null}" action="#{shipBean.create}" value="Save" />  
+                    <h:commandButton styleClass="btn btn-outline-info" rendered="#{shipBean.entity.ship_id!=null}" action="#{shipBean.update}" value="Update" />  
+                    <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{shipBean.entity.ship_id!=null}" action="#{shipBean.clearForm}" value="Clear Form" />  
+
                 </div>
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{shipBean.list}" var="c" >
@@ -86,8 +88,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         </h:column>
                         <h:column>
                             <f:facet name="header">Aplication</f:facet>
-                            <h:commandButton styleClass="btn btn-danger" action="#{shipBean.delete(c)}" value="Delete" />
-                            
+                            <h:commandButton styleClass="btn btn-outline-danger" action="#{shipBean.delete(c)}" value="Delete" />
+
                         </h:column>
 
                     </h:dataTable>

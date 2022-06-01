@@ -25,6 +25,10 @@ public class BrandBean implements Serializable {
 
     }
 
+    public void clearForm() {
+        this.entity = new Brand();
+    }
+
     public void create() {
         this.getDao().BrandDAO(entity);
         this.entity = new Brand();

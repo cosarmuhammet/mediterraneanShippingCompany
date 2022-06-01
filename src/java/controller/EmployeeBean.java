@@ -22,6 +22,9 @@ public class EmployeeBean implements Serializable {
 
     public EmployeeBean() {
     }
+    public void clearForm(){
+        this.entity = new Employee();
+    }
 
     public void create() {
         this.getDao().EmployeeDAO(entity);//gelen Employee nesnesini EmployeeDAO sınıfındaki constructor methoduna yollar

@@ -9,18 +9,32 @@
 
     </h:head>
     <h:body>
-        
+
         <h:form>
-            <h:commandButton action="/index" value="HOME" />
+            <nav class="navbar bg-light">
+
+                
+                <h:commandButton styleClass="btn btn-outline-warning" action="/adminHome" value="Home"/>
+
+
+
+
+
+            </nav>
         </h:form>
+        <br></br>
+
 
 
         <h:form enctype="multipart/form-data">
             <div class="form-group">
+                <br/><br/>
                 <label>File</label>
-                <h:inputFile value="#{documentController.doc}" styleClass="custom-file"/>
+                <h:inputFile value="#{documentController.doc}" styleClass="custom-file"/><br/>
             </div>
-            <h:commandButton action="#{documentController.upload}" value="Upload" styleClass="btn btn-primary"/>
+            <br/>
+            <br/>
+            <h:commandButton styleClass="btn btn-outline-success" action="#{documentController.upload}" value="Upload" />
         </h:form>
         <hr/>
         <h:form>
@@ -41,7 +55,7 @@
                     <f:facet name="header">TYPE</f:facet>
                         #{d.fileType}
                 </h:column>
-                 <h:column>
+                <h:column>
                     <h:panelGroup layout="block" rendered="#{d.fileType.contains('image')}">
                         <h:graphicImage width="100" value="/file/#{d.fileName}" />
                     </h:panelGroup>
@@ -50,7 +64,7 @@
                         <a href="/JavaWeb/faces/file/#{d.fileName}">#{d.fileName}</a>
                     </h:panelGroup>
                 </h:column>
-                
+
             </h:dataTable>
         </h:form>
 
