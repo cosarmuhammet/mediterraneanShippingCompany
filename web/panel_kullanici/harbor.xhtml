@@ -18,7 +18,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             </h:form>
         </div>
         <hr/>
-
         <div class="container mt-5" >
             <h:form>
                 <div class="mb-3">
@@ -27,7 +26,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         
                         <h:commandButton action="#{harborBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
                         <h:commandButton action="#{harborBean.next}" value="Next" styleClass="btn btn-dark"/>
-
                     </div>
                     <h:dataTable styleClass="table table-striped" value="#{harborBean.list2}" var="c" >
 
@@ -54,11 +52,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">CONTRACT_DURATION</f:facet>
                                 #{c.contract_duration}
                         </h:column>
-
-
-
                     </h:dataTable>
-
                 </div>
             </h:form>
         </div>

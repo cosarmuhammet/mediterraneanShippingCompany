@@ -43,12 +43,12 @@ public class BrandDAO extends DBConnection {
             String query = "update brand set brand_name='" + c.getBrand_name() + "',contract_dates='" + c.getContract_Dates() + "', contract_duration='" + c.getContract_Duration() + "'   where brand_id='" + c.getBrand_id() + "' ";
             st.executeUpdate(query);  //OLUSTURMA İSLEMLERİ
 
-            st.executeUpdate("delete from brand_country where brand_id='" + c.getBrand_id() + "' ");
-
-            for (Country co : c.getCountryies()) {
-                query = "insert into brand_country (brand_id,country_id) values (" + c.getBrand_id() + "," + co.getCountry_id() + "";
-                st.executeUpdate(query);
-            }
+//            st.executeUpdate("delete from brand_country where brand_id='" + c.getBrand_id() + "' ");
+//
+//            for (Country co : c.getCountryies()) {
+//                query = "insert into brand_country (brand_id,country_id) values (" + c.getBrand_id() + "," + co.getCountry_id() + "";
+//                st.executeUpdate(query);
+//            }
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

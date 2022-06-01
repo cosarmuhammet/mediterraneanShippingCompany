@@ -18,21 +18,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             </h:form>
         </div>
         <hr/>
-
         <div class="container mt-5" >
             <h:form>
-
-
                 <div class="mb-3">
                     Page #{shipBean.page} of #{shipBean.pageCount} <br/>
                     <div class="btn-group">
-
                         <h:commandButton action="#{shipBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
                         <h:commandButton action="#{shipBean.next}" value="Next" styleClass="btn btn-dark"/>
-
                     </div>
                     <h:dataTable styleClass="table table-striped" value="#{shipBean.list2}" var="c" >
-
                         <h:column>
                             <f:facet name="header">Ship ID</f:facet>
                                 #{c.ship_id}
@@ -45,14 +39,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">NAME</f:facet>
                                 #{c.ship_name}
                         </h:column>
-
-
                         <h:column>
                             <f:facet name="header">Dimension</f:facet>
                                 #{c.dimension}
                         </h:column>
-
-
                         <h:column>
                             <f:facet name="header">Production_date</f:facet>
                                 #{c.production_date}
@@ -61,8 +51,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">Capacity</f:facet>
                                 #{c.capacity}
                         </h:column>
-
-
                     </h:dataTable>
                 </div>
             </h:form>

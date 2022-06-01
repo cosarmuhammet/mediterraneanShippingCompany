@@ -8,8 +8,6 @@
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet library="css" name="bootstrap.min.css"/>
-
-
     </h:head>
     <h:body>
 
@@ -47,8 +45,6 @@
                     <h:commandButton styleClass="btn btn-outline-info" rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.update}" value="Update" />  
                     <h:commandButton styleClass="btn btn-outline-secondary" rendered="#{brandBean.entity.brand_id !=null}" action="#{brandBean.clearForm}" value="Clear Form" />
                 </div>
-
-
                 <div class="mb-3">
                     <h:dataTable styleClass="table table-striped" value="#{brandBean.list}" var="c" >
 
@@ -72,8 +68,6 @@
                             </h:commandLink>
 
                         </h:column>
-
-
                         <h:column>
                             <f:facet name="header">CONTRACT_DATES</f:facet>
                                 #{c.contract_Dates}

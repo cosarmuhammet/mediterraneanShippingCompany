@@ -26,7 +26,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         
                         <h:commandButton action="#{employeeBean.prevois}" value="Previous" styleClass="btn btn-dark"/>
                         <h:commandButton action="#{employeeBean.next}" value="Next" styleClass="btn btn-dark"/>
-
                     </div>
                     <h:dataTable styleClass="table table-striped" value="#{employeeBean.list2}" var="c" >
 
@@ -67,9 +66,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <f:facet name="header">wage</f:facet>
                                 #{c.wage}
                         </h:column>
-
-
-
                     </h:dataTable>
                 </div>
             </h:form>
